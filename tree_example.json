@@ -88,12 +88,5 @@
         "id": 12,
         "parentnode": true,
         "parentnode_number": 9
-    },
-    {
-        "text_string": "test",
-        "node_type": "and",
-        "id": 13,
-        "parentnode": true,
-        "parentnode_number": 3
     }
 ]

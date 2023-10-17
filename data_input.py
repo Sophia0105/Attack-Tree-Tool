@@ -2,8 +2,7 @@ import json
 import read_json
 import easygui
 
-def open_promt():
-    filename = easygui.fileopenbox()
+def append_node(filename):
     f_json = read_json.open_file(filename)
     # print(f_json)
 
@@ -21,4 +20,23 @@ def open_promt():
     f_json.append(new_node)
     read_json.close_file(filename, f_json)
 
-open_promt()
+def delete_node(filename, nr_vertices):
+    f_json = read_json.open_file(filename)
+
+    node_nr = int(input("Which node number do you want to delete? "))
+    for i in range(nr_vertices+1):
+        print(str(f_json[i]["id"]))
+        if f_json[i]["id"] == node_nr:
+            deleted_node = f_json.pop(i)
+        else: 
+            deleted_node = "None"
+
+
+    print("deleted node: " + str(deleted_node))
+    read_json.close_file(filename, f_json)
+
+
+
+filename = easygui.fileopenbox()
+# append_node(filename)
+# delete_node(filename, 13)
