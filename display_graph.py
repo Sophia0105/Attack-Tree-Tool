@@ -155,7 +155,7 @@ def show_plot(nr_vertices, edges, nodes, nodeTypes):
     # app.run_server(debug=True, use_reloader=False)
     return fig
 
-def show_plot_numbers(nr_vertices, edges, nodes, nodeTypes, numbers):
+def show_plot_numbers(nr_vertices, edges, nodes, nodeTypes):
     G = ig.Graph(nr_vertices, edges)
     lay = G.layout('rt', root=[0])
 
@@ -180,7 +180,6 @@ def show_plot_numbers(nr_vertices, edges, nodes, nodeTypes, numbers):
         Ye+= [2*M-position[edge[0]][1], 2*M-position[edge[1]][1], None]
 
     labels = nodes
-    hover = numbers
 
     new_nodes = []
     Xnn = []
@@ -219,7 +218,7 @@ def show_plot_numbers(nr_vertices, edges, nodes, nodeTypes, numbers):
                                 line=dict(color='rgb(50,50,50)', width=1)
                                 ),
                   text=labels,
-                  hoverinfo=hover,
+                  hoverinfo='text',
                   # opacity=0.8
                   ))
     
@@ -228,11 +227,12 @@ def show_plot_numbers(nr_vertices, edges, nodes, nodeTypes, numbers):
                   y=Yhn,
                   mode='markers',
                   marker=dict(symbol="circle",
-                                size=15,
+                                size=25,
                                 color='#6175c1',    #'#DB4551',
                                 line=dict(color='rgb(50,50,50)', width=1)
                                 ),
                   text=labels,
+                  hoverinfo='none',
                   # opacity=0.8
                   ))
 
@@ -243,8 +243,7 @@ def show_plot_numbers(nr_vertices, edges, nodes, nodeTypes, numbers):
             showticklabels=False,
             )
 
-    fig.update_layout(title= 'Example Attack Tree',
-              annotations=make_annotations(position, nodes, nodes, M, position),
+    fig.update_layout(annotations=make_annotations(position, nodes, nodes, M, position),
               font_size=12,
               showlegend=False,
               xaxis=axis,
