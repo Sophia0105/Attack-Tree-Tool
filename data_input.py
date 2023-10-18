@@ -14,23 +14,13 @@ def append_node(filename, input_node):
     f_json.append(new_node)
     read_json.close_file(filename, f_json)
 
-def delete_node(filename, nr_vertices):
+def delete_node(filename, nr_vertices, node_nr):
     f_json = read_json.open_file(filename)
-
-    node_nr = int(input("Which node number do you want to delete? "))
     for i in range(nr_vertices+1):
         print(str(f_json[i]["id"]))
         if f_json[i]["id"] == node_nr:
             deleted_node = f_json.pop(i)
         else: 
             deleted_node = "None"
-
-
-    print("deleted node: " + str(deleted_node))
     read_json.close_file(filename, f_json)
-
-
-
-filename = easygui.fileopenbox()
-# append_node(filename)
-# delete_node(filename, 13)
+    return delete_node
