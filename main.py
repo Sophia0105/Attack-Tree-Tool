@@ -7,6 +7,9 @@ from dash import Dash, dcc, html
 import dash_bootstrap_components as dbc
 from pick import pick
 
+
+app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+
 def generate_layout(filename, option):
     data = read_json.load(filename)
     nr_vertices = len(read_json.create_nodes(data))
@@ -58,24 +61,12 @@ def generate_layout(filename, option):
 
         layout = dash_input.delete_node(filename, nr_vertices, edges, nodes, node_types, nr_vertices_old)
         return layout
-
-    else: 
-        print("Invalid Input")
-
-
-def main():
-    app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-
-    filename=easygui.fileopenbox()
-
-    options = ['look at existing attack tree', 'insert new node', 'delete node']
-    _, option_idx = pick(options, 'What do you want to do?')
-
-    layout = generate_layout(filename, option_idx)
     
-    app.layout = layout
-    app.run(debug=True)
-
 
 if __name__=='__main__':
-    main()
+    options = ['look at existing attack tree', 'insert new node', 'delete node']
+    _, idx = pick(options, 'What do you want to do?')
+    file = easygui.fileopenbox()
+    layout = generate_layout(file, idx+1)
+    app.layout = layout
+    app.run(debug=True, use_reloader=False)
