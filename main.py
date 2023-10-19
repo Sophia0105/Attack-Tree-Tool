@@ -5,8 +5,9 @@ import dash_input
 import data_input
 from dash import Dash, dcc, html
 import dash_bootstrap_components as dbc
+from pick import pick
 
-def main(filename, option, app):
+def generate_layout(filename, option):
     data = read_json.load(filename)
     nr_vertices = len(read_json.create_nodes(data))
     nodes = read_json.create_nodes(data)
@@ -23,9 +24,9 @@ def main(filename, option, app):
 
         fig = display_graph.show_plot(nr_vertices, edges, nodes, node_types)
         figure= dbc.Row(dbc.Col(dcc.Graph(figure=fig),width=12))
-        layout = dbc.Container([html.H1("Current Attack Tree"), figure], fluid=True)
-        app.run(debug=True)
 
+        layout = dbc.Container([html.H1("Current Attack Tree"), figure], fluid=True)
+        return layout
 
     elif int(option) == 2: 
         #insert new node
@@ -41,8 +42,7 @@ def main(filename, option, app):
         edges = new_stuff[3]
 
         layout = dash_input.append_node(filename, nr_vertices, edges, nodes, node_types, nr_vertices_old)
-        app.layout = layout
-        app.run(debug=True)
+        return layout
 
     elif int(option) == 3:
         full_info = []
@@ -57,15 +57,25 @@ def main(filename, option, app):
         edges = new_stuff[3]
 
         layout = dash_input.delete_node(filename, nr_vertices, edges, nodes, node_types, nr_vertices_old)
-        app.layout = layout
-        app.run(debug=True)
+        return layout
 
     else: 
         print("Invalid Input")
 
 
-if __name__=='__main__':
+def main():
     app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+
     filename=easygui.fileopenbox()
-    option = input("What do you want to do? \n1 look at existing attack tree \n2 insert new node\n3 delete node\n")
-    main(filename, option, app)
+
+    options = ['look at existing attack tree', 'insert new node', 'delete node']
+    _, option_idx = pick(options, 'What do you want to do?')
+
+    layout = generate_layout(filename, option_idx)
+    
+    app.layout = layout
+    app.run(debug=True)
+
+
+if __name__=='__main__':
+    main()
