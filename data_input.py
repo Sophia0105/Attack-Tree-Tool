@@ -1,6 +1,4 @@
-import json
 import read_json
-import easygui
 
 def append_node(filename, input_node):
     f_json = read_json.open_file(filename)
@@ -16,11 +14,12 @@ def append_node(filename, input_node):
 
 def delete_node(filename, nr_vertices, node_nr):
     f_json = read_json.open_file(filename)
-    for i in range(nr_vertices+1):
+    delete_node = "None"
+    for i in range(nr_vertices):
         print(str(f_json[i]["id"]))
         if f_json[i]["id"] == node_nr:
             deleted_node = f_json.pop(i)
         else: 
-            deleted_node = "None"
+            pass
     read_json.close_file(filename, f_json)
     return delete_node

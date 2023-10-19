@@ -114,6 +114,7 @@ def show_plot(nr_vertices, edges, nodes, nodeTypes):
                                 line=dict(color='rgb(50,50,50)', width=1)
                                 ),
                   text=labels,
+                  textposition='middle left',
                   hoverinfo='text',
                   # opacity=0.8
                   ))
@@ -218,6 +219,7 @@ def show_plot_numbers(nr_vertices, edges, nodes, nodeTypes):
                                 line=dict(color='rgb(50,50,50)', width=1)
                                 ),
                   text=labels,
+                  textposition= 'middle left',
                   hoverinfo='text',
                   # opacity=0.8
                   ))

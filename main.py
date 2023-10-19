@@ -6,18 +6,13 @@ import data_input
 from dash import Dash, dcc, html
 import dash_bootstrap_components as dbc
 
-if __name__=='__main__':
-    filename=easygui.fileopenbox()
+def main(filename, option, app):
     data = read_json.load(filename)
-
     nr_vertices = len(read_json.create_nodes(data))
     nodes = read_json.create_nodes(data)
     node_types = read_json.get_nodeTypes(data)
     edges = read_json.create_edges(data)
 
-    app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-
-    option = input("What do you want to do? \n1 look at existing attack tree \n2 insert new node\n3 delete node\n")
     if int(option) == 1:
         # open attack tree
         new_stuff = display_graph.insert_node_types(nr_vertices, node_types, nodes, edges)
@@ -67,3 +62,10 @@ if __name__=='__main__':
 
     else: 
         print("Invalid Input")
+
+
+if __name__=='__main__':
+    app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+    filename=easygui.fileopenbox()
+    option = input("What do you want to do? \n1 look at existing attack tree \n2 insert new node\n3 delete node\n")
+    main(filename, option, app)
