@@ -76,11 +76,16 @@ def append_node(filename, nr_vertices, edges, nodes, nodeTypes, nr_vertices_old)
             new_node.append(True)
             new_node.append(value3)
             data_input.append_node(filename, new_node)
+            data = read_json.load(filename)
+            nr_vertices = len(read_json.create_nodes(data))
+            nodes = read_json.create_nodes(data)
+            node_types = read_json.get_nodeTypes(data)
+            edges = read_json.create_edges(data)
             return "Inserted {}. node: (id: {}), (text: {}), (type: {}), (parent: {})".format(n_clicks, id, value1, str(value2), str(value3))
         else: 
             pass
 
-    fig = display_graph.show_plot_numbers(nr_vertices, edges, nodes, nodeTypes)
+    fig = display_graph.show_plot(nr_vertices, edges, nodes, nodeTypes)
     figure= dbc.Row(dbc.Col(dcc.Graph(figure=fig),width=12))
 
     form = dbc.Form([node_text, dropdown_1, dropdown_2, insert_button])

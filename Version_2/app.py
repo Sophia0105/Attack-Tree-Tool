@@ -6,7 +6,6 @@ app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP]
 
 app.layout = html.Div([
     html.H1('Attack Tree Modeler'),
-    html.Br(),
     html.Div('Actions: '),
     html.Div([
         html.Div(

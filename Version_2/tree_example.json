@@ -91,23 +91,16 @@
     },
     {
         "text_string": "Get lock picking tools",
-        "node_type": "end",
+        "node_type": "and",
         "id": 13,
         "parentnode": true,
         "parentnode_number": 1
     },
     {
-        "text_string": "Test Test Test",
+        "text_string": "Insert something into something",
         "node_type": "end",
         "id": 14,
         "parentnode": true,
-        "parentnode_number": 13
-    },
-    {
-        "text_string": "Test Test Test",
-        "node_type": "end",
-        "id": 15,
-        "parentnode": true,
-        "parentnode_number": 13
+        "parentnode_number": 12
     }
 ]

@@ -2,8 +2,6 @@ import dash
 import read_json
 import dash_input
 import display_graph
-from dash import dcc, html
-import dash_bootstrap_components as dbc
 import easygui
 
 
@@ -21,7 +19,7 @@ for i in range(nr_vertices):
     full_info.append(str(i) +  ": " +nodes[i])
 nr_vertices_old = nr_vertices
 
-new_stuff = display_graph.insert_node_types(nr_vertices, node_types, nodes, edges)
+new_stuff = display_graph.insert_node_types(nr_vertices, node_types, full_info, edges)
 nr_vertices = new_stuff[0]
 nodes = new_stuff[1]
 node_types = new_stuff [2]
