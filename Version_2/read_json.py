@@ -40,11 +40,11 @@ def create_edges(data):
             edges.append(edge)
     return edges
 
-def get_nodeTypes(data):
-    nodeTypes = []
+def get_node_types(data):
+    node_types = []
     for i in data:
-        nodeTypes.append(i["node_type"])
-    return nodeTypes
+        node_types.append(i["node_type"])
+    return node_types
 
 def load(filename):
     data = open_file(filename)

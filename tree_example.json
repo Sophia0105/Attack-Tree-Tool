@@ -3,7 +3,8 @@
         "text_string": "open safe",
         "node_type": "or",
         "id": 0,
-        "parentnode": false
+        "parentnode": false,
+        "parentnode_number": 0
     },
     {
         "text_string": "pick lock",
@@ -95,19 +96,5 @@
         "id": 13,
         "parentnode": true,
         "parentnode_number": 1
-    },
-    {
-        "text_string": "Test Test Test",
-        "node_type": "end",
-        "id": 14,
-        "parentnode": true,
-        "parentnode_number": 13
-    },
-    {
-        "text_string": "Test Test Test",
-        "node_type": "end",
-        "id": 15,
-        "parentnode": true,
-        "parentnode_number": 13
     }
 ]

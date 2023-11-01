@@ -1,26 +1,24 @@
 import dash
 import read_json
 import display_graph
-from dash import dcc, html
+from dash import html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
 import easygui
 
 
 dash.register_page(__name__, path='/')
 
-filename=easygui.fileopenbox()
-data = read_json.load(filename)
-nr_vertices = len(read_json.create_nodes(data))
-nodes = read_json.create_nodes(data)
-node_types = read_json.get_nodeTypes(data)
-edges = read_json.create_edges(data)
+def layout():
+    file = open('D:\TH\Bachelorarbeit\Attack Tree Modellierer\Version_2\Storage.txt', 'r')
+    filename= file.read()
+    
+    fig = display_graph.show_plot(filename)
+    figure= html.Div([dbc.Row(dbc.Col(dcc.Graph(id='live_graph', figure=fig),width=12)),dcc.Interval(id='interval_component', interval = 1*1000, n_intervals=0)])
 
-new_stuff = display_graph.insert_node_types(nr_vertices, node_types, nodes, edges)
-nr_vertices = new_stuff[0]
-nodes = new_stuff[1]
-node_types = new_stuff [2]
-edges = new_stuff[3]
+    @callback(Output('live_graph', 'figure'), Input('interval_component', 'n_intervals'))
+    def update_graph_live(n):
+        fig = display_graph.show_plot(filename)
+        return fig
 
-fig = display_graph.show_plot(nr_vertices, edges, nodes, node_types)
-figure= dbc.Row(dbc.Col(dcc.Graph(figure=fig),width=12))
-layout = dbc.Container([html.H1("Current Attack Tree"), figure], fluid=True)
+    layout = dbc.Container([html.H1('Current Attack Tree'), figure], fluid=True)
+    return layout

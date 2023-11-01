@@ -16,10 +16,31 @@ def delete_node(filename, nr_vertices, node_nr):
     f_json = read_json.open_file(filename)
     delete_node = "None"
     for i in range(nr_vertices):
-        print(str(f_json[i]["id"]))
-        if f_json[i]["id"] == node_nr:
-            deleted_node = f_json.pop(i)
+        if (f_json[i]["id"] == node_nr):
+            delete_node = f_json.pop(i)
+            read_json.close_file(filename, f_json)
+            return delete_node
         else: 
             pass
+    return {'text_string': 'None', 'node_type': 'None', 'id': 'None', 'parentnode': 'None', 'parentnode_number': 'None'}
+
+def check_node_types(filename):
+    error = False
+    f_json = read_json.open_file(filename)
+    nr_vertices = f_json[-1]["id"]
+    parent_nodes = []
+    for i in range(nr_vertices):
+        parent_nodes.append(f_json[i]["parentnode_number"])
+    for i in range(nr_vertices): 
+        if (f_json[i]["node_type"] == "and") and i not in parent_nodes:
+            f_json[i]["node_type"] = "end"
+            error = True
+        if (f_json[i]["node_type"] == "or") and i not in parent_nodes:
+            f_json[i]["node_type"] = "end"
+            error = True
+        if f_json[i]["node_type"] == "end" and parent_nodes.count(i) >= 2:
+            f_json[i]["node_type"] = "or"
+            error = True
     read_json.close_file(filename, f_json)
-    return delete_node
+    return error
+        

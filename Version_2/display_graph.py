@@ -1,11 +1,12 @@
 import igraph as ig
 import plotly.graph_objects as go
+import read_json
 
-def insert_node_types(nr_vertices, nodeTypes, nodes, edges):
+def insert_node_types(nr_vertices, node_types, nodes, edges):
     new_edges = edges
     number_of_nodes = nr_vertices
     counter = 0
-    for i in nodeTypes:
+    for i in node_types:
         if i=="and":
             counter_2 = 0
             for j in new_edges: 
@@ -14,7 +15,7 @@ def insert_node_types(nr_vertices, nodeTypes, nodes, edges):
                     new_edges[counter_2] = (number_of_nodes, second)
                 counter_2 += 1
             nodes.append("and")
-            nodeTypes.append("helper")
+            node_types.append("helper")
             new_edges.append((counter, number_of_nodes))
             number_of_nodes += 1
         elif i=="or":
@@ -25,13 +26,13 @@ def insert_node_types(nr_vertices, nodeTypes, nodes, edges):
                     new_edges[counter_2] = (number_of_nodes, second)
                 counter_2 += 1
             nodes.append("or")
-            nodeTypes.append("helper")
+            node_types.append("helper")
             new_edges.append((counter, number_of_nodes))
             number_of_nodes += 1
         else: 
             pass
         counter += 1
-    return [number_of_nodes, nodes, nodeTypes, new_edges]
+    return [number_of_nodes, nodes, node_types, new_edges]
 
 def make_annotations(pos, text, labels, M, position, font_size=14, font_color='rgb(250,250,250)'):
     L=len(pos)
@@ -50,7 +51,19 @@ def make_annotations(pos, text, labels, M, position, font_size=14, font_color='r
         )
     return annotations
     
-def show_plot(nr_vertices, edges, nodes, nodeTypes):
+def show_plot(filename):
+    data = read_json.load(filename)
+    nr_vertices = len(read_json.create_nodes(data))
+    nodes = read_json.create_nodes(data)
+    node_types = read_json.get_node_types(data)
+    edges = read_json.create_edges(data)
+
+    new_stuff = insert_node_types(nr_vertices, node_types, nodes, edges)
+    nr_vertices = new_stuff[0]
+    nodes = new_stuff[1]
+    node_types = new_stuff [2]
+    edges = new_stuff[3]
+
     G = ig.Graph(nr_vertices, edges)
     lay = G.layout('rt', root=[0])
 
@@ -83,7 +96,7 @@ def show_plot(nr_vertices, edges, nodes, nodeTypes):
     Xhn = []
     Yhn = []
     for i in range(nr_vertices):
-        if nodeTypes[i] == "helper":
+        if node_types[i] == "helper":
             helpers.append(nodes[i])
             Xhn.append(Xn[i])
             Yhn.append(Yn[i])
