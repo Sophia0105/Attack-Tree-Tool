@@ -5,25 +5,6 @@ import easygui
 
 app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP], title="Attack Tree Modeler")
 
-# def serve_layout():
-#     layout = html.Div
-#     ([
-#         html.H1('Attack Tree Modeler'),
-#         html.Div('Actions: '),
-
-#         html.Div(dbc.NavbarSimple(children=[dbc.DropdownMenu(children=[html.Div(dbc.DropdownMenuItem(f"{page['name']}", href=page["relative_path"])) for page in dash.page_registry.values()])])),
-
-#         # html.Div([
-#         #     html.Div(
-#         #         dcc.Link(f"{page['name']}", href=page["relative_path"])
-#         #     ) for page in dash.page_registry.values()
-#         # ]),
-#         dash.page_container
-#     ])
-#     return layout
-
-# app.layout = serve_layout()
-
 app.layout = html.Div([
         html.Div(
             dbc.NavbarSimple(
@@ -40,12 +21,6 @@ app.layout = html.Div([
                 )
             ),
         html.Br(),
-
-        # html.Div([
-        #     html.Div(
-        #         dcc.Link(f"{page['name']}", href=page["relative_path"])
-        #     ) for page in dash.page_registry.values()
-        # ]),
         dash.page_container
     ])
 

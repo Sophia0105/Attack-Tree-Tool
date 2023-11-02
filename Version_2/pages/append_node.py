@@ -9,7 +9,7 @@ import dash_bootstrap_components as dbc
 dash.register_page(__name__, path='/append')
 
 
-file = open("D:\TH\Bachelorarbeit\Attack Tree Modellierer\Version_2\Storage.txt", "r")
+file = open("D:\TH\Bachelorarbeit\Attack Tree Modellierer\Storage.txt", "r")
 filename= file.read()
 data = read_json.load(filename)
 nr_vertices = len(read_json.create_nodes(data))
@@ -47,7 +47,7 @@ dropdown_2 = dbc.Row(
 insert_button = dbc.Row(
     [
         dbc.Label("Insert node with these attributes now", width=2),
-        dbc.Col(dbc.Button("Insert", id='submit-val', n_clicks=0, href="/"), width=5),
+        dbc.Col(dbc.Button("Insert", id='submit-val', n_clicks=0, href="/show_tree"), width=5),
         dbc.Col(html.Div(id='container-button-basic', children='No node inserted untill now'), width=5)
     ]
 )

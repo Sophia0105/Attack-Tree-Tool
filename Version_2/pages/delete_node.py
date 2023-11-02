@@ -8,7 +8,7 @@ import dash_bootstrap_components as dbc
 dash.register_page(__name__, path='/delete')
 
 
-file = open("D:\TH\Bachelorarbeit\Attack Tree Modellierer\Version_2\Storage.txt", "r")
+file = open("D:\TH\Bachelorarbeit\Attack Tree Modellierer\Storage.txt", "r")
 filename= file.read()
 data = read_json.load(filename)
 nr_vertices = len(read_json.create_nodes(data))
@@ -32,7 +32,7 @@ dropdown = dbc.Row(
 submit_button = dbc.Row(
     [
         dbc.Label("If you really want to delete the node, press the button", width=2),
-        dbc.Col(dbc.Button("Submit", id='submit', n_clicks=0, href="/"), width=5),
+        dbc.Col(dbc.Button("Submit", id='submit', n_clicks=0, href="/show_tree"), width=5),
         dbc.Col(html.Div(id='button-container', children='Nothing deleted yet'), width=5)
     ]
 )
