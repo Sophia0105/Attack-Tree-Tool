@@ -1,6 +1,7 @@
 import igraph as ig
 import plotly.graph_objects as go
 import read_json
+import display_graph
 
 def insert_node_types(nr_vertices, node_types, nodes, edges):
     new_edges = edges
@@ -58,7 +59,12 @@ def show_plot(filename):
     node_types = read_json.get_node_types(data)
     edges = read_json.create_edges(data)
 
-    new_stuff = insert_node_types(nr_vertices, node_types, nodes, edges)
+    full_info = []
+    for i in range(nr_vertices):
+        full_info.append(str(i) +  ": " +nodes[i])
+
+    new_stuff = display_graph.insert_node_types(nr_vertices, node_types, full_info, edges)
+    nr_vertices_old = nr_vertices
     nr_vertices = new_stuff[0]
     nodes = new_stuff[1]
     node_types = new_stuff [2]
