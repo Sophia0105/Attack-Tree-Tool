@@ -11,6 +11,7 @@ def append_node(filename, input_node):
     new_node = {"text_string": text, "node_type": node_type,"id": id, "parentnode": True, "parentnode_number": parent_node}
     f_json.append(new_node)
     read_json.close_file(filename, f_json)
+    correct_node_types(filename)
 
 def delete_node(filename, nr_vertices, node_nr):
     f_json = read_json.open_file(filename)
@@ -19,12 +20,13 @@ def delete_node(filename, nr_vertices, node_nr):
         if (f_json[i]["id"] == node_nr):
             delete_node = f_json.pop(i)
             read_json.close_file(filename, f_json)
+            correct_node_types(filename)
             return delete_node
         else: 
             pass
     return {'text_string': 'None', 'node_type': 'None', 'id': 'None', 'parentnode': 'None', 'parentnode_number': 'None'}
 
-def check_node_types(filename):
+def correct_node_types(filename):
     error = False
     f_json = read_json.open_file(filename)
     nr_vertices = f_json[-1]["id"]

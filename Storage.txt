@@ -1,1 +1,1 @@
-D:\TH\Bachelorarbeit\Attack Tree Modellierer\test2.json
+D:\TH\Bachelorarbeit\Attack Tree Modellierer\trees\tree_example.json

@@ -2,12 +2,14 @@ import dash
 import display_graph
 from dash import html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
+import os
 
 
 dash.register_page(__name__, path='/show_tree')
 
-
-file = open('D:\TH\Bachelorarbeit\Attack Tree Modellierer\Storage.txt', 'r')
+# storage = str(os.getcwd()) + "\Storage.txt"
+storage = "Storage.txt"
+file = open(storage, 'r')
 filename= file.read()
 
 fig = display_graph.show_plot(filename)
@@ -23,7 +25,9 @@ update_button = dbc.Row(
 
 @callback(Output('live_graph', 'figure'), Input('submit-val', 'n_clicks'))
 def update_graph_live(n):
-    file = open("D:\TH\Bachelorarbeit\Attack Tree Modellierer\Storage.txt", "r")
+    # storage = str(os.getcwd()) + "\Storage.txt"
+    storage = "Storage.txt"
+    file = open(storage, "r")    
     filename= file.read()
     fig = display_graph.show_plot(filename)
     return fig

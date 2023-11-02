@@ -1,0 +1,16 @@
+[
+    {
+        "text_string": "say sophia is the best ",
+        "node_type": "end",
+        "id": 0,
+        "parentnode": false,
+        "parentnode_number": "None"
+    },
+    {
+        "text_string": "get to know sophia",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0
+    }
+]

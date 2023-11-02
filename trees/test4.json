@@ -1,0 +1,30 @@
+[
+    {
+        "text_string": "say sophia is the best",
+        "node_type": "end",
+        "id": 0,
+        "parentnode": false,
+        "parentnode_number": "None"
+    },
+    {
+        "text_string": "Test 2",
+        "node_type": "or",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0
+    },
+    {
+        "text_string": "new layer 1",
+        "node_type": "end",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 1
+    },
+    {
+        "text_string": "new layer 2",
+        "node_type": "end",
+        "id": 3,
+        "parentnode": true,
+        "parentnode_number": 1
+    }
+]

@@ -4,12 +4,14 @@ import data_input
 import display_graph
 from dash import html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
-
+import os
 
 dash.register_page(__name__, path='/append')
 
 
-file = open("D:\TH\Bachelorarbeit\Attack Tree Modellierer\Storage.txt", "r")
+# storage = str(os.getcwd()) + "\\Storage.txt"
+storage = "Storage.txt"
+file = open(storage, "r")
 filename= file.read()
 data = read_json.load(filename)
 nr_vertices = len(read_json.create_nodes(data))
@@ -61,8 +63,13 @@ insert_button = dbc.Row(
 )
 def update_output(n_clicks, value1, value3):
     if n_clicks > 0:
+        # storage = str(os.getcwd()) + "\Storage.txt"
+        storage = "Storage.txt"
+        file = open(storage, "r")        
+        filename= file.read()
         new_node = [value1, "end", id, True, value3]
         data_input.append_node(filename, new_node)
+        data_input.correct_node_types(filename)
         return "Inserted {}. node: (id: {}), (text: {}), (type: {}), (parent: {})".format(n_clicks, id , value1, "end", str(value3))
     else: 
         pass
@@ -79,8 +86,12 @@ update_button_append = dbc.Row(
 
 @callback(Output('append_graph', 'figure'), Input('update_append', 'n_clicks'))
 def update_graph_append(n):
+    # storage = str(os.getcwd()) + "\Storage.txt"
+    storage = "Storage.txt"
+    file = open(storage, "r")
+    filename= file.read()
     fig = display_graph.show_plot(filename)
     return fig
 
 form = dbc.Form([node_text, dropdown_2, insert_button])
-layout = dbc.Container([html.H1("Insert a new node", className='app-header'), form, figure], fluid=True)
+layout = dbc.Container([html.H1("Insert a new node", className='app-header'), form, update_button_append, figure], fluid=True)

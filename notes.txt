@@ -1,0 +1,19 @@
+Notizen und vielleicht noch brauchbare Codeschnipsel: 
+
+update_button_delete2 = dbc.Row(
+    [
+        dbc.Label("Update graph", width=2),
+        dbc.Col(dbc.Button("Update Graph", id='update_delete_options', n_clicks=0), width=5),
+    ]
+)
+
+@callback(Output('dropdown','options'), Input('update_delete_options', 'n_clicks'))
+def update_options_delete(n):
+    data = read_json.load(filename)
+    nr_vertices = len(read_json.create_nodes(data))
+
+    options_dropdown = []
+    for i in range(nr_vertices):
+        text = "Node " + str(i)
+        options_dropdown.append({"label": text, "value": i})
+    return options_dropdown

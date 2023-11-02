@@ -3,10 +3,14 @@ h1,h2,h3,h4,h5,h6 {
     font-family: sans-serif;
 }
 
+h2 {
+    font-size: 18px;
+}
+
 .app-header {
     height: 60px;
     line-height: 60px;
     border-bottom: thin lightgrey solid;
     font-size: 22px;
-    padding-left: 60px;
+    padding-left: 0px;
 }

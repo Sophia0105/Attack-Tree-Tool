@@ -21,80 +21,66 @@
         "parentnode_number": 0
     },
     {
-        "text_string": "cut open safe",
+        "text_string": "install improperly",
         "node_type": "end",
         "id": 3,
         "parentnode": true,
         "parentnode_number": 0
     },
     {
-        "text_string": "install improperly",
-        "node_type": "end",
-        "id": 4,
-        "parentnode": true,
-        "parentnode_number": 0
-    },
-    {
         "text_string": "find written combo",
         "node_type": "end",
-        "id": 5,
+        "id": 4,
         "parentnode": true,
         "parentnode_number": 2
     },
     {
         "text_string": "get combo from target",
         "node_type": "or",
-        "id": 6,
+        "id": 5,
         "parentnode": true,
         "parentnode_number": 2
     },
     {
         "text_string": "threaten",
         "node_type": "end",
-        "id": 7,
+        "id": 6,
         "parentnode": true,
-        "parentnode_number": 6
+        "parentnode_number": 5
     },
     {
         "text_string": "blackmail",
         "node_type": "end",
-        "id": 8,
+        "id": 7,
         "parentnode": true,
-        "parentnode_number": 6
+        "parentnode_number": 5
     },
     {
         "text_string": "eavesdrop",
-        "node_type": "and",
-        "id": 9,
+        "node_type": "or",
+        "id": 8,
         "parentnode": true,
-        "parentnode_number": 6
+        "parentnode_number": 5
     },
     {
         "text_string": "bribe",
         "node_type": "end",
-        "id": 10,
+        "id": 9,
         "parentnode": true,
-        "parentnode_number": 6
+        "parentnode_number": 5
     },
     {
         "text_string": "listen to conversation",
         "node_type": "end",
-        "id": 11,
+        "id": 10,
         "parentnode": true,
-        "parentnode_number": 9
+        "parentnode_number": 8
     },
     {
         "text_string": "get target to state combo",
         "node_type": "end",
-        "id": 12,
+        "id": 11,
         "parentnode": true,
-        "parentnode_number": 9
-    },
-    {
-        "text_string": "Test Test Test",
-        "node_type": "end",
-        "id": 13,
-        "parentnode": true,
-        "parentnode_number": 1
+        "parentnode_number": 8
     }
 ]

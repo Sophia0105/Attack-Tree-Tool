@@ -4,11 +4,12 @@ import data_input
 import display_graph
 from dash import html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
+import os
 
 dash.register_page(__name__, path='/delete')
-
-
-file = open("D:\TH\Bachelorarbeit\Attack Tree Modellierer\Storage.txt", "r")
+# storage = str(os.getcwd()) + "\Storage.txt"
+storage = "Storage.txt"
+file = open(storage, "r")
 filename= file.read()
 data = read_json.load(filename)
 nr_vertices = len(read_json.create_nodes(data))
@@ -51,7 +52,7 @@ def update_output(n_clicks, value):
         pass
 
 
-update_button_append = dbc.Row(
+update_button_delete = dbc.Row(
     [
         dbc.Label("Update graph", width=2),
         dbc.Col(dbc.Button("Update Graph", id='update_delete', n_clicks=0), width=5),
@@ -60,29 +61,14 @@ update_button_append = dbc.Row(
 
 @callback(Output('delete_graph', 'figure'), Input('update_delete', 'n_clicks'))
 def update_graph_delete(n):
+    # storage = str(os.getcwd()) + "\Storage.txt"
+    storage = "Storage.txt"
+    file = open(storage, "r")
+    filename= file.read()
     fig = display_graph.show_plot(filename)
     return fig
 
-# update_button_delete2 = dbc.Row(
-#     [
-#         dbc.Label("Update graph", width=2),
-#         dbc.Col(dbc.Button("Update Graph", id='update_delete_options', n_clicks=0), width=5),
-#     ]
-# )
-
-# @callback(Output('dropdown','options'), Input('update_delete_options', 'n_clicks'))
-# def update_options_delete(n):
-#     data = read_json.load(filename)
-#     nr_vertices = len(read_json.create_nodes(data))
-
-#     options_dropdown = []
-#     for i in range(nr_vertices):
-#         text = "Node " + str(i)
-#         options_dropdown.append({"label": text, "value": i})
-#     return options_dropdown
-
-
 fig = display_graph.show_plot(filename)
-figure= dbc.Row(dbc.Col(dcc.Graph(figure=fig, id="delete_graph"),width=12))
+figi= dbc.Row(dbc.Col(dcc.Graph(figure=fig, id="delete_graph"),width=12))
 form = dbc.Form([dropdown, submit_button])
-layout = dbc.Container([html.H1("Delete a Node", className='app-header'), form, figure], fluid=True)
+layout = dbc.Container([html.H1("Delete a Node", className='app-header'), form, update_button_delete, figi], fluid=True)

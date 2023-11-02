@@ -1,7 +1,7 @@
 import dash
 from dash import html, dcc, Dash
 import dash_bootstrap_components as dbc
-import easygui
+import os
 
 app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP], title="Attack Tree Modeler")
 
@@ -25,8 +25,10 @@ app.layout = html.Div([
     ])
 
 if __name__ == '__main__':
-    filename = easygui.fileopenbox()
-    text_file = open("Storage.txt", "w")
+    filename = str(os.getcwd())+ "\\trees\\tree_example.json"
+    # storage = str(os.getcwd()) + "\\Storage.txt"
+    storage = "Storage.txt"
+    text_file = open(storage, "w")
     text_file.write(filename)
     text_file.close()
     app.run(debug=False)
