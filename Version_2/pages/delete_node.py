@@ -33,7 +33,7 @@ dropdown = dbc.Row(
 submit_button = dbc.Row(
     [
         dbc.Label("If you really want to delete the node, press the button", width=2),
-        dbc.Col(dbc.Button("Submit", id='submit', n_clicks=0, href="/show_tree"), width=5),
+        dbc.Col(dbc.Button("Submit", id='submit', n_clicks=0, href="/show_tree", class_name="button"), width=5),
         dbc.Col(html.Div(id='button-container', children='Nothing deleted yet'), width=5)
     ]
 )
@@ -55,7 +55,7 @@ def update_output(n_clicks, value):
 update_button_delete = dbc.Row(
     [
         dbc.Label("Update graph", width=2),
-        dbc.Col(dbc.Button("Update Graph", id='update_delete', n_clicks=0), width=5),
+        dbc.Col(dbc.Button("Update Graph", id='update_delete', n_clicks=0, class_name="button"), width=5),
     ]
 )
 

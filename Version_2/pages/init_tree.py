@@ -31,7 +31,7 @@ nodetext_input = dbc.Row(
 update_button = dbc.Row(
     [
         dbc.Label("Start new tree", width=2),
-        dbc.Col(dbc.Button("Init file", id='submit-name', n_clicks=0), width=5),
+        dbc.Col(dbc.Button("Init file", id='submit-name', n_clicks=0, class_name="button"), width=5),
         dbc.Col(html.Div(id='filename', children='No file yet'), width=5)
     ]
 )
@@ -49,7 +49,7 @@ def update_graph_live(n, value1, value2):
         first_node = [{'text_string': value2, 'node_type': 'end', 'id': 0, 'parentnode': False, 'parentnode_number': 'None'}]
         read_json.close_file(filename, first_node)
         # storage = str(os.getcwd()) + "\\Storage.txt"
-        storage = "Stage.txt"
+        storage = "Storage.txt"
         text_file = open(storage, "w")
         text_file.write(filename)
         text_file.close()
@@ -68,7 +68,7 @@ file_string = "Currrently opened file is: " + str(filename)
 select_button = dbc.Row(
     [
         dbc.Label("Open existing file", width=2),
-        dbc.Col(dbc.Button("Select", id='select-name', n_clicks=0), width=5),
+        dbc.Col(dbc.Button("Select", id='select-name', n_clicks=0, class_name="button"), width=5),
         dbc.Col(html.Div(id='fileselector', children=file_string), width=5)
     ]
 )

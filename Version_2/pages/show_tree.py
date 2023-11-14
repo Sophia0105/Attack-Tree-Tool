@@ -18,7 +18,7 @@ fig = display_graph.show_plot(filename)
 update_button = dbc.Row(
     [
         dbc.Label("Update graph", width=2),
-        dbc.Col(dbc.Button("Update Graph", id='submit-val', n_clicks=0), width=5),
+        dbc.Col(dbc.Button("Update Graph", id='submit-val', n_clicks=0, class_name="button"), width=5),
         # dbc.Col(html.Div(id='container-button-basic', children='No node inserted untill now'), width=5)
     ]
 )
