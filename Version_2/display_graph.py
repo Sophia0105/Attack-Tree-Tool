@@ -119,7 +119,7 @@ def show_plot(filename):
     fig.add_trace(go.Scatter(x=Xe,
                    y=Ye,
                    mode='lines',
-                   line=dict(color='rgb(210,210,210)', width=1),
+                   line=dict(color='rgb(210,210,210)', width=5),
                    hoverinfo='none'
                    ))
     

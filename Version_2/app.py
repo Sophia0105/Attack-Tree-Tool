@@ -3,7 +3,7 @@ from dash import html, dcc, Dash
 import dash_bootstrap_components as dbc
 import os
 
-app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP], title="Attack Tree Modeler")
+app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP], title="Attack Tree Creator")
 
 app.layout = html.Div([
         html.Div(
@@ -14,11 +14,12 @@ app.layout = html.Div([
                                      in_navbar=True, 
                                      label="Actions"),
                     ],
-                    brand="Attack Tree Modeler",
+                    brand="Attack Tree Creator",
                     brand_href="/",
-                    color="DeepPink", 
+                    color="LightBlue", 
                     dark=True,
-                )
+                ),
+                # className= "navbar",
             ),
         html.Br(),
         dash.page_container

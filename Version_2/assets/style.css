@@ -14,3 +14,12 @@ h2 {
     font-size: 22px;
     padding-left: 0px;
 }
+
+.button {
+    background-color: deeppink;
+    border: 0;
+}
+
+.navbar {
+    color: black;
+}

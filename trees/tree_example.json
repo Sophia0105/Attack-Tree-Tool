@@ -14,7 +14,7 @@
         "parentnode_number": 0
     },
     {
-        "text_string": "learn combo",
+        "text_string": "Test Test Test",
         "node_type": "or",
         "id": 2,
         "parentnode": true,
