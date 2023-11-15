@@ -21,12 +21,26 @@ dropdown = dbc.Row(
     [
         dbc.Label("Node Number", html_for="dropdown_nr", width=2),
         dbc.Col(dcc.Dropdown(
-            id='dropdown_nr',
+            id='dropdown_nnr',
             options=options_dropdown,
-        ), width=10),
+        ), width=8),
+        dbc.Col(dbc.Button("Update Options", id='update_dropdown_nnr_options', n_clicks=0),width=2)
     ],
     className="mb-3",
 )
+
+@callback(
+    Output('dropdown_nnr', 'options'),
+    Input('update_dropdown_nnr_options', 'n_clicks')
+)
+def update_dropdown_nr_options(n):
+    data = read_json.load()
+    new_options = []
+    for i in range(len(data)):
+        text = "Node " + str(i)
+        new_options.append({"label": text, "value": i})
+    return new_options
+
 
 dropdown_type = dbc.Row(
     [
@@ -54,7 +68,7 @@ insert_button = dbc.Row(
     Output('container-alter-type', 'children'),
     Input('submit-val', 'n_clicks'), 
     State('dropdown_type', 'value'),
-    State('dropdown_nr', 'value'),
+    State('dropdown_nnr', 'value'),
     prevent_inital_call=True
 )
 def alter_output(n_clicks, n_type, node_nr):

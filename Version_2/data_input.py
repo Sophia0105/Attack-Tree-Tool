@@ -6,7 +6,7 @@ def append_node(input_node):
     file = open(storage, "r")
     filename= file.read()
     file.close()
-    f_json = read_json.open_file(filename)
+    f_json = read_json.load()
     
     text = input_node[0]
     node_type = input_node[1]
@@ -16,7 +16,6 @@ def append_node(input_node):
     new_node = {"text_string": text, "node_type": node_type,"id": id, "parentnode": True, "parentnode_number": parent_node}
     f_json.append(new_node)
     read_json.close_file(filename, f_json)
-    correct_node_types(filename)
 
 def alter_text(node_nr, text):
     storage = str(os.getcwd()) + "\Storage.txt"

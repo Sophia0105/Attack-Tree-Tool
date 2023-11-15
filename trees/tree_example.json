@@ -14,14 +14,14 @@
     },
     {
         "text_string": " learn combo",
-        "node_type": "or",
+        "node_type": "and",
         "id": 2,
         "parentnode": true,
         "parentnode_number": 0
     },
     {
         "text_string": " cut open safe",
-        "node_type": "end",
+        "node_type": "or",
         "id": 3,
         "parentnode": true,
         "parentnode_number": 0
@@ -42,7 +42,7 @@
     },
     {
         "text_string": " get combo from<br>target",
-        "node_type": "or",
+        "node_type": "and",
         "id": 6,
         "parentnode": true,
         "parentnode_number": 2
@@ -100,6 +100,13 @@
         "text_string": " bitte funktionier<br>jetzt wirklich<br>endlich ich will ins<br>bett",
         "node_type": "end",
         "id": 14,
+        "parentnode": true,
+        "parentnode_number": 3
+    },
+    {
+        "text_string": " ich will ins bett",
+        "node_type": "end",
+        "id": 15,
         "parentnode": true,
         "parentnode_number": 3
     }

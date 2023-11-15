@@ -36,10 +36,23 @@ dropdown_2 = dbc.Row(
         dbc.Col(dcc.Dropdown(
             id="dropdown_2",
             options=options_dropdown2,
-        ), width=10),
+        ), width=8),
+        dbc.Col(dbc.Button("Update Options", id='update_dropdown_p_options', n_clicks=0),width=2)
     ],
     className="mb-3",
 )
+
+@callback(
+    Output('dropdown_2', 'options'),
+    Input('update_dropdown_p_options', 'n_clicks')
+)
+def update_dropdown_p_options(n):
+    data = read_json.load()
+    new_options = []
+    for i in range(len(data)):
+        text = "Node " + str(i)
+        new_options.append({"label": text, "value": i})
+    return new_options
 
 insert_button = dbc.Row(
     [
