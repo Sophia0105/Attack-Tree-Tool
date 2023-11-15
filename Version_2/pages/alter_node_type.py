@@ -8,8 +8,7 @@ import os
 
 dash.register_page(__name__, path='/alter_type')
 
-# storage = str(os.getcwd()) + "\\Storage.txt"
-storage = "Storage.txt"
+storage = str(os.getcwd()) + "\Storage.txt"
 file = open(storage, "r")
 filename= file.read()
 data = read_json.load(filename)
@@ -65,7 +64,6 @@ insert_button = dbc.Row(
 def alter_output(n_clicks, n_type, node_nr):
     if n_clicks > 0:
         storage = str(os.getcwd()) + "\Storage.txt"
-        storage = "Storage.txt"
         file = open(storage, "r")        
         filename= file.read()
         data_input.alter_type(filename, node_nr, n_type, nr_vertices)
@@ -86,8 +84,7 @@ update_button_type= dbc.Row(
 
 @callback(Output('alter_type_graph', 'figure'), Input('update_type', 'n_clicks'))
 def update_graph_alter(n):
-    # storage = str(os.getcwd()) + "\Storage.txt"
-    storage = "Storage.txt"
+    storage = str(os.getcwd()) + "\Storage.txt"
     file = open(storage, "r")
     filename= file.read()
     fig = display_graph.show_plot(filename)

@@ -48,8 +48,7 @@ def update_graph_live(n, value1, value2):
         filename = str(os.getcwd())+ "\\trees\\" + value1 + ".json"
         first_node = [{'text_string': value2, 'node_type': 'end', 'id': 0, 'parentnode': False, 'parentnode_number': 'None'}]
         read_json.close_file(filename, first_node)
-        # storage = str(os.getcwd()) + "\\Storage.txt"
-        storage = "Storage.txt"
+        storage = str(os.getcwd()) + "\Storage.txt"
         text_file = open(storage, "w")
         text_file.write(filename)
         text_file.close()
@@ -59,8 +58,7 @@ def update_graph_live(n, value1, value2):
     
 form1 = dbc.Form([filename_input, nodetext_input, update_button])
 
-storage = str(os.getcwd()) + "\\Storage.txt"
-storage = "Storage.txt"
+storage = str(os.getcwd()) + "\Storage.txt"
 file = open(storage, "r")
 filename= file.read()
 file_string = "Currrently opened file is: " + str(filename)
@@ -82,8 +80,7 @@ def open_file_dialog(n):
     if n > 0:
         path = str(os.getcwd()) + "\\trees\\*.json"
         new_filename = easygui.fileopenbox(filetypes=["*.json"], default=path)
-        # storage = str(os.getcwd()) + "\Storage.txt"
-        storage = "Storage.txt"
+        storage = str(os.getcwd()) + "\Storage.txt"
         if new_filename != None:
             text_file = open(storage, "w")
             text_file.write(new_filename)

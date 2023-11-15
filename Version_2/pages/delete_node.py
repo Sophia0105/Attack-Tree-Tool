@@ -7,8 +7,7 @@ import dash_bootstrap_components as dbc
 import os
 
 dash.register_page(__name__, path='/delete')
-# storage = str(os.getcwd()) + "\Storage.txt"
-storage = "Storage.txt"
+storage = str(os.getcwd()) + "\Storage.txt"
 file = open(storage, "r")
 filename= file.read()
 data = read_json.load(filename)
@@ -61,8 +60,7 @@ update_button_delete = dbc.Row(
 
 @callback(Output('delete_graph', 'figure'), Input('update_delete', 'n_clicks'))
 def update_graph_delete(n):
-    # storage = str(os.getcwd()) + "\Storage.txt"
-    storage = "Storage.txt"
+    storage = str(os.getcwd()) + "\Storage.txt"
     file = open(storage, "r")
     filename= file.read()
     fig = display_graph.show_plot(filename)

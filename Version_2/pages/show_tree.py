@@ -7,8 +7,7 @@ import os
 
 dash.register_page(__name__, path='/show_tree')
 
-# storage = str(os.getcwd()) + "\Storage.txt"
-storage = "Storage.txt"
+storage = str(os.getcwd()) + "\Storage.txt"
 file = open(storage, 'r')
 filename= file.read()
 
@@ -25,8 +24,7 @@ update_button = dbc.Row(
 
 @callback(Output('live_graph', 'figure'), Input('submit-val', 'n_clicks'))
 def update_graph_live(n):
-    # storage = str(os.getcwd()) + "\Storage.txt"
-    storage = "Storage.txt"
+    storage = str(os.getcwd()) + "\Storage.txt"
     file = open(storage, "r")    
     filename= file.read()
     fig = display_graph.show_plot(filename)

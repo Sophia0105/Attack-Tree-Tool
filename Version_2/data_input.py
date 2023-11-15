@@ -34,27 +34,33 @@ def alter_type(filename, node_nr, n_type, nr_vertices):
             pass
 
 def alter_parent(filename, node_nr, parent_new, nr_vertices):
-    f_json = read_json.open_file(filename)
-    for i in range(nr_vertices):
-        if (f_json[i]["id"] == node_nr):
-            f_json[i]["parentnode_number"] = parent_new
-            read_json.close_file(filename, f_json)
-            return delete_node
-        else: 
-            pass
+    if node_nr == 0:
+        return "Error: Node 0 has no parent node"
+    else:
+        f_json = read_json.open_file(filename)
+        for i in range(nr_vertices):
+            if (f_json[i]["id"] == node_nr):
+                f_json[i]["parentnode_number"] = parent_new
+                read_json.close_file(filename, f_json)
+                return delete_node
+            else: 
+                pass
 
 def delete_node(filename, nr_vertices, node_nr):
-    f_json = read_json.open_file(filename)
-    delete_node = "None"
-    for i in range(nr_vertices):
-        if (f_json[i]["id"] == node_nr):
-            delete_node = f_json.pop(i)
-            read_json.close_file(filename, f_json)
-            correct_node_types(filename)
-            return delete_node
-        else: 
-            pass
-    return {'text_string': 'None', 'node_type': 'None', 'id': 'None', 'parentnode': 'None', 'parentnode_number': 'None'}
+    if node_nr == 0:
+        return "Error: Node 0 can not be deleted"
+    else:
+        f_json = read_json.open_file(filename)
+        delete_node = "None"
+        for i in range(nr_vertices):
+            if (f_json[i]["id"] == node_nr):
+                delete_node = f_json.pop(i)
+                read_json.close_file(filename, f_json)
+                correct_node_types(filename)
+                return delete_node
+            else: 
+                pass
+        return {'text_string': 'None', 'node_type': 'None', 'id': 'None', 'parentnode': 'None', 'parentnode_number': 'None'}
 
 def correct_node_types(filename):
     error = False
