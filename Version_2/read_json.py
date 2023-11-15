@@ -1,8 +1,10 @@
 import json
+import os
 
 def open_file(filename):
-    with open(filename, "r") as file:
-        data = json.load(file)
+    file = open(filename)
+    data = json.load(file)
+    file.close()
     return data
  
 def close_file(filename, data):
@@ -46,7 +48,11 @@ def get_node_types(data):
         node_types.append(i["node_type"])
     return node_types
 
-def load(filename):
+def load():
+    storage = str(os.getcwd()) + "\Storage.txt"
+    file = open(storage, "r")
+    filename= file.read()
+    file.close()
     data = open_file(filename)
     updated = correct_ids(data)
     close_file(filename, updated)

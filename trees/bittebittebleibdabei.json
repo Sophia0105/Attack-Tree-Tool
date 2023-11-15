@@ -1,12 +1,12 @@
 [
     {
-        "text_string": "say sophia is the best ",
+        "text_string": " bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte",
         "node_type": "end",
         "id": 0,
         "parentnode": false
     },
     {
-        "text_string": "get to know sophia",
+        "text_string": " immer noch bitte<br>bitte bitte bitte",
         "node_type": "end",
         "id": 1,
         "parentnode": true,

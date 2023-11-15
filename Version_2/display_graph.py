@@ -2,6 +2,7 @@ import igraph as ig
 import plotly.graph_objects as go
 import read_json
 import data_input
+import os
 
 def insert_node_types(nr_vertices, node_types, nodes, edges):
     new_edges = edges
@@ -52,9 +53,10 @@ def make_annotations(pos, text, labels, M, position, font_size=14, font_color='r
         )
     return annotations
     
-def show_plot(filename):
-    data_input.correct_node_types(filename)
-    data = read_json.load(filename)
+def show_plot():
+    data_input.add_br_to_text()
+    data_input.correct_node_types()
+    data = read_json.load()
     nr_vertices = len(read_json.create_nodes(data))
     nodes = read_json.create_nodes(data)
     node_types = read_json.get_node_types(data)

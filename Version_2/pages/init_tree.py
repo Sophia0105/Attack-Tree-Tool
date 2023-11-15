@@ -46,7 +46,7 @@ update_button = dbc.Row(
 def update_graph_live(n, value1, value2):
     if n > 0:
         filename = str(os.getcwd())+ "\\trees\\" + value1 + ".json"
-        first_node = [{'text_string': value2, 'node_type': 'end', 'id': 0, 'parentnode': False, 'parentnode_number': 'None'}]
+        first_node = [{'text_string': value2, 'node_type': 'end', 'id': 0, 'parentnode': False}]
         read_json.close_file(filename, first_node)
         storage = str(os.getcwd()) + "\Storage.txt"
         text_file = open(storage, "w")
@@ -61,6 +61,7 @@ form1 = dbc.Form([filename_input, nodetext_input, update_button])
 storage = str(os.getcwd()) + "\Storage.txt"
 file = open(storage, "r")
 filename= file.read()
+file.close()
 file_string = "Currrently opened file is: " + str(filename)
 
 select_button = dbc.Row(
@@ -89,6 +90,10 @@ def open_file_dialog(n):
         else:
             return "Error: No file choosen"
     else:
+        storage = str(os.getcwd()) + "\Storage.txt"
+        file = open(storage, "r")
+        filename= file.read()
+        file.close()
         return "Currrently opened file is: " + str(filename)
 
 form2 = dbc.Form([select_button])

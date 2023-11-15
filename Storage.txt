@@ -1,1 +1,1 @@
-D:\TH\Bachelorarbeit\Attack Tree Modellierer\trees\tree_example.json
+D:\TH\Bachelorarbeit\Attack Tree Modellierer\trees\sophia.json

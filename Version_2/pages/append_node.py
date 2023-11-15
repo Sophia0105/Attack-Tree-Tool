@@ -4,15 +4,11 @@ import data_input
 import display_graph
 from dash import html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
-import os
 
 dash.register_page(__name__, path='/append')
 
 
-storage = str(os.getcwd()) + "\Storage.txt"
-file = open(storage, "r")
-filename= file.read()
-data = read_json.load(filename)
+data = read_json.load()
 nr_vertices = len(read_json.create_nodes(data))
 last_node = data[-1]
 id = last_node["id"] + 1
@@ -62,17 +58,14 @@ insert_button = dbc.Row(
 )
 def update_output(n_clicks, value1, value3):
     if n_clicks > 0:
-        storage = str(os.getcwd()) + "\Storage.txt"
-        file = open(storage, "r")        
-        filename= file.read()
         new_node = [value1, "end", id, True, value3]
-        data_input.append_node(filename, new_node)
-        data_input.correct_node_types(filename)
+        data_input.append_node(new_node)
+        data_input.correct_node_types()
         return "Inserted {}. node: (id: {}), (text: {}), (type: {}), (parent: {})".format(n_clicks, id , value1, "end", str(value3))
     else: 
         pass
 
-fig = display_graph.show_plot(filename)
+fig = display_graph.show_plot()
 figure= dbc.Row(dbc.Col(dcc.Graph(figure=fig, id="append_graph"),width=12))
 
 update_button_append = dbc.Row(
@@ -84,10 +77,7 @@ update_button_append = dbc.Row(
 
 @callback(Output('append_graph', 'figure'), Input('update_append', 'n_clicks'))
 def update_graph_append(n):
-    storage = str(os.getcwd()) + "\Storage.txt"
-    file = open(storage, "r")
-    filename= file.read()
-    fig = display_graph.show_plot(filename)
+    fig = display_graph.show_plot()
     return fig
 
 form = dbc.Form([node_text, dropdown_2, insert_button])

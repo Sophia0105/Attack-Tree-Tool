@@ -1,26 +1,26 @@
 [
     {
-        "text_string": " say sophia is the<br>best",
-        "node_type": "end",
+        "text_string": " bitte",
+        "node_type": "or",
         "id": 0,
         "parentnode": false
     },
     {
-        "text_string": " Test 2",
-        "node_type": "or",
+        "text_string": " immer noch bitte<br>immer noch bitte<br>immer noch bitte zum<br>zweiten",
+        "node_type": "end",
         "id": 1,
         "parentnode": true,
         "parentnode_number": 0
     },
     {
-        "text_string": " new layer 1",
+        "text_string": " new test",
         "node_type": "end",
         "id": 2,
         "parentnode": true,
-        "parentnode_number": 1
+        "parentnode_number": 0
     },
     {
-        "text_string": " new layer 2",
+        "text_string": " test 4",
         "node_type": "end",
         "id": 3,
         "parentnode": true,

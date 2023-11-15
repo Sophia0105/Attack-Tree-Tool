@@ -1,20 +1,19 @@
 [
     {
-        "text_string": "open safe",
-        "node_type": "or",
+        "text_string": " open safe",
+        "node_type": "end",
         "id": 0,
-        "parentnode": false,
-        "parentnode_number": 0
+        "parentnode": false
     },
     {
-        "text_string": "find written combo",
+        "text_string": " find written combo",
         "node_type": "end",
         "id": 1,
         "parentnode": true,
         "parentnode_number": 2
     },
     {
-        "text_string": "pick lock",
+        "text_string": " pick lock",
         "node_type": "end",
         "id": 2,
         "parentnode": true,

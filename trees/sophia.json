@@ -1,13 +1,12 @@
 [
     {
-        "text_string": "open safe",
+        "text_string": " open safe",
         "node_type": "or",
         "id": 0,
-        "parentnode": false,
-        "parentnode_number": 0
+        "parentnode": false
     },
     {
-        "text_string": "pick lock",
+        "text_string": " pick lock",
         "node_type": "end",
         "id": 1,
         "parentnode": true,
