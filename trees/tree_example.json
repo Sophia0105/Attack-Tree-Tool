@@ -57,7 +57,7 @@
     },
     {
         "text_string": "eavesdrop",
-        "node_type": "or",
+        "node_type": "and",
         "id": 8,
         "parentnode": true,
         "parentnode_number": 5

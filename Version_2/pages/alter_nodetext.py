@@ -24,7 +24,7 @@ for i in range(nr_vertices):
 
 dropdown = dbc.Row(
     [
-        dbc.Label("Node Number", html_for="dropdown", width=2),
+        dbc.Label("Node Number", html_for="dropdown_alter", width=2),
         dbc.Col(dcc.Dropdown(
             id='dropdown_alter',
             options=options_dropdown,
@@ -59,13 +59,13 @@ insert_button = dbc.Row(
     State('dropdown_alter', 'value'),
     prevent_inital_call=True
 )
-def alter_output(n_clicks, text, node_nr):
+def alter_output(n_clicks, n_text, node_nr):
     if n_clicks > 0:
         storage = str(os.getcwd()) + "\Storage.txt"
         storage = "Storage.txt"
         file = open(storage, "r")        
         filename= file.read()
-        data_input.alter_text(filename, node_nr, text, nr_vertices)
+        data_input.alter_text(filename, node_nr, n_text, nr_vertices)
         return "Altered"
     else: 
         pass
@@ -89,6 +89,6 @@ def update_graph_alter(n):
     fig = display_graph.show_plot(filename)
     return fig
 
-form = dbc.Form([node_text, dropdown, insert_button])
+form = dbc.Form([dropdown, node_text, insert_button])
 # form = dbc.Form([node_text, dropdown])
-layout = dbc.Container([html.H1("Insert a new node", className='app-header'), form, update_button_alter, figure], fluid=True)
+layout = dbc.Container([html.H1("Alter the node text", className='app-header'), form, update_button_alter, figure], fluid=True)
