@@ -7,9 +7,14 @@ def open_file(filename):
     file.close()
     return data
  
-def close_file(filename, data):
-    with open(filename, "w") as file:
-        json.dump(data, file, indent=4)
+def close_file(data):
+    storage = str(os.getcwd()) + "\Storage.txt"
+    file = open(storage, "r")
+    filename= file.read()
+    file.close()
+    f_json = open(filename, "w")
+    json.dump(data, f_json, indent=4)
+    f_json.close()
 
 def correct_ids(data):
     new_data = data
@@ -55,7 +60,7 @@ def load():
     file.close()
     data = open_file(filename)
     updated = correct_ids(data)
-    close_file(filename, updated)
+    close_file(updated)
     return updated
 
 def insert_node_types(nr_vertices, node_types, nodes, edges):

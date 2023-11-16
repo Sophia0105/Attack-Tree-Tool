@@ -90,11 +90,8 @@ insert_button = dbc.Row(
 )
 def alter_output(n_clicks, n_parent, node_nr):
     if n_clicks > 0:
-        storage = str(os.getcwd()) + "\Storage.txt"
-        file = open(storage, "r")        
-        filename= file.read()
-        alteration = data_input.alter_parent(filename, node_nr, n_parent)
-        data_input.correct_node_types(filename)
+        alteration = data_input.alter_parent(node_nr, n_parent)
+        data_input.correct_node_types()
         return alteration
     else: 
         pass

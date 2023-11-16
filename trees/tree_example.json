@@ -22,17 +22,9 @@
         "edge": 0.5
     },
     {
-        "text_string": " test 4",
-        "node_type": "end",
-        "id": 3,
-        "parentnode": true,
-        "parentnode_number": 2,
-        "edge": 2
-    },
-    {
         "text_string": " new layer 3.1",
         "node_type": "end",
-        "id": 4,
+        "id": 3,
         "parentnode": true,
         "parentnode_number": 1,
         "edge": 6
@@ -40,9 +32,25 @@
     {
         "text_string": " test layer 2.1",
         "node_type": "end",
-        "id": 5,
+        "id": 4,
         "parentnode": true,
         "parentnode_number": 0,
         "edge": 5
+    },
+    {
+        "text_string": " try 234",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 45
+    },
+    {
+        "text_string": " try 345",
+        "node_type": "end",
+        "id": 6,
+        "parentnode": true,
+        "parentnode_number": 3,
+        "edge": 234
     }
 ]
