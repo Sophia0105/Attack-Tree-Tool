@@ -57,3 +57,60 @@ def load():
     updated = correct_ids(data)
     close_file(filename, updated)
     return updated
+
+def insert_node_types(nr_vertices, node_types, nodes, edges):
+    new_edges = edges
+    number_of_nodes = nr_vertices
+    counter = 0
+    for i in node_types:
+        if i=="and":
+            counter_2 = 0
+            for j in new_edges: 
+                if j[0] == counter:
+                    second = j[1]
+                    new_edges[counter_2] = (number_of_nodes, second)
+                counter_2 += 1
+            nodes.append("and")
+            node_types.append("helper")
+            new_edges.append((counter, number_of_nodes))
+            number_of_nodes += 1
+        elif i=="or":
+            counter_2 = 0
+            for j in new_edges: 
+                if j[0] == counter:
+                    second = j[1]
+                    new_edges[counter_2] = (number_of_nodes, second)
+                counter_2 += 1
+            nodes.append("or")
+            node_types.append("helper")
+            new_edges.append((counter, number_of_nodes))
+            number_of_nodes += 1
+        else: 
+            pass
+        counter += 1
+    return [number_of_nodes, nodes, node_types, new_edges]
+
+def make_annotations(pos, text, labels, M, position, font_size=14, font_color='rgb(250,250,250)'):
+    L=len(pos)
+    if len(text)!=L:
+        raise ValueError('The lists pos and text must have the same len')
+    annotations = []
+    for k in range(L):
+        annotations.append(
+            dict(
+                text=labels[k], # or replace labels with a different list for the text within the circle
+                x=pos[k][0], y=2*M-position[k][1],
+                xref='x1', yref='y1',
+                font=dict(color=font_color, size=font_size),
+                bgcolor = "#6175c1",
+                showarrow=False)
+        )
+    return annotations
+
+def get_edge_labels():
+    data = load()
+    edge_labels = []
+    for i in range(len(data)):
+        if data[i]["parentnode"] == True:
+            edge_labels.append(data[i]["edge"])
+    return edge_labels
