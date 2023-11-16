@@ -1,32 +1,48 @@
 [
     {
-        "text_string": " test layer 1",
-        "node_type": "end",
+        "text_string": " lange lange lange<br>lange lange lange<br>lange lange lange<br>lange lange lange<br>lange lange",
+        "node_type": "or",
         "id": 0,
         "parentnode": false
     },
     {
         "text_string": " test layer 2",
-        "node_type": "or",
+        "node_type": "and",
         "id": 1,
         "parentnode": true,
         "parentnode_number": 0,
-        "edge": 0.5
-    },
-    {
-        "text_string": " new layer 3.1",
-        "node_type": "end",
-        "id": 2,
-        "parentnode": true,
-        "parentnode_number": 1,
-        "edge": 50
+        "edge": 1
     },
     {
         "text_string": " new layer 3.2",
         "node_type": "end",
-        "id": 3,
+        "id": 2,
         "parentnode": true,
         "parentnode_number": 1,
         "edge": 0.5
+    },
+    {
+        "text_string": " test 4",
+        "node_type": "end",
+        "id": 3,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 2
+    },
+    {
+        "text_string": " new layer 3.1",
+        "node_type": "end",
+        "id": 4,
+        "parentnode": true,
+        "parentnode_number": 1,
+        "edge": 6
+    },
+    {
+        "text_string": " test layer 2.1",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 5
     }
 ]
