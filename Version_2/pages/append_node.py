@@ -54,6 +54,18 @@ def update_dropdown_p_options(n):
         new_options.append({"label": text, "value": i})
     return new_options
 
+edge_weight = dbc.Row(
+    [
+        dbc.Label("Enter edge weight for connection to parent node", html_for="input_nr", width=2),
+        dbc.Col(dbc.Input(
+            id="input_nr",
+            type = "number",
+            placeholder= "Input Number"
+            ),
+            width=10)
+    ]
+)
+
 insert_button = dbc.Row(
     [
         dbc.Label("Insert node with these attributes now", width=2),
@@ -67,11 +79,12 @@ insert_button = dbc.Row(
     Input('submit-val', 'n_clicks'), 
     State('node_text', 'value'),
     State('dropdown_2', 'value'),
+    State('input_nr', 'value'),
     prevent_inital_call=True
 )
-def update_output(n_clicks, value1, value3):
+def update_output(n_clicks, value1, value3, edge_w):
     if n_clicks > 0:
-        new_node = [value1, "end", id, True, value3]
+        new_node = [value1, "end", id, True, value3, edge_w]
         data_input.append_node(new_node)
         data_input.correct_node_types()
         return "Inserted {}. node: (id: {}), (text: {}), (type: {}), (parent: {})".format(n_clicks, id , value1, "end", str(value3))
@@ -93,5 +106,5 @@ def update_graph_append(n):
     fig = display_graph.show_plot()
     return fig
 
-form = dbc.Form([node_text, dropdown_2, insert_button])
+form = dbc.Form([node_text, dropdown_2, edge_weight, insert_button])
 layout = dbc.Container([html.H1("Insert a new node", className='app-header'), form, update_button_append, figure], fluid=True)

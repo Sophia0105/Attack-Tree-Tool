@@ -19,7 +19,7 @@
         "id": 2,
         "parentnode": true,
         "parentnode_number": 1,
-        "edge": 0.5
+        "edge": 50
     },
     {
         "text_string": " new layer 3.2",

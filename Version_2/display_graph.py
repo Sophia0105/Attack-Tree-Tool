@@ -96,7 +96,7 @@ def show_plot():
             fig.add_annotation(x = Xel[i], y = Yel[i], text = edge_labels[i], showarrow= False)
 
     for i in range(len(nodes)):
-        fig.add_annotation(x=Xn[i], y= Yn[i], text = nodes[i], showarrow=False, bgcolor="#6175c1")
+        fig.add_annotation(x=Xn[i], y= Yn[i], text = nodes[i], showarrow=False, bgcolor="#6175c1", font=dict(color="#ffffff"))
     
     # Shows full nodes
     fig.add_trace(go.Scatter(x=Xnn,

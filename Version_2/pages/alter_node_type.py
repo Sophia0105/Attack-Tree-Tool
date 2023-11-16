@@ -47,7 +47,7 @@ dropdown_type = dbc.Row(
         dbc.Label("Node Number", html_for="dropdown_type", width=2),
         dbc.Col(dcc.Dropdown(
             id='dropdown_type',
-            options=[{'label': 'END', 'value':'end'},
+            options=[{'label': 'END/ SINGLE LEAVE', 'value':'end'},
                      {'label': 'AND', 'value': 'and'},
                      {'label': 'OR', 'value': 'or'}],
             value='end'

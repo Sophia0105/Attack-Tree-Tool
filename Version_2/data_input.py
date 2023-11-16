@@ -12,8 +12,9 @@ def append_node(input_node):
     node_type = input_node[1]
     id = input_node[2]
     parent_node = input_node[4]
+    edge_label = input_node[5]
 
-    new_node = {"text_string": text, "node_type": node_type,"id": id, "parentnode": True, "parentnode_number": parent_node}
+    new_node = {"text_string": text, "node_type": node_type,"id": id, "parentnode": True, "parentnode_number": parent_node, "edge": edge_label}
     f_json.append(new_node)
     read_json.close_file(filename, f_json)
 
@@ -141,6 +142,24 @@ def add_br(input_line, max_length):
                 cur_line += " " + word
                 long_line += " " + word
         return long_line
+    
+def alter_edge(node_nr, edge_new):
+    storage = str(os.getcwd()) + "\Storage.txt"
+    file = open(storage, "r")
+    filename= file.read()
+    file.close()
+    if node_nr == 0:
+        return "Error: Node 0 has no parent node"
+    else:
+        f_json = read_json.open_file(filename)
+        nr_vertices = len(f_json)
+        for i in range(nr_vertices):
+            if (f_json[i]["id"] == node_nr):
+                f_json[i]["edge"] = edge_new
+                read_json.close_file(filename, f_json)
+                return "Successful"
+            else: 
+                pass
 
 
         
