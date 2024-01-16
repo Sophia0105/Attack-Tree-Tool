@@ -25,6 +25,7 @@ node_text = dbc.Row(
         dbc.Col(dbc.Input(
             id="node_text", 
             placeholder="Enter the content of the node",
+            value="Example Text"
             ), width=10),
     ],
     className="mb-3",
@@ -36,6 +37,7 @@ dropdown_2 = dbc.Row(
         dbc.Col(dcc.Dropdown(
             id="dropdown_2",
             options=options_dropdown2,
+            value=0,
         ), width=8),
         dbc.Col(dbc.Button("Update Options", id='update_dropdown_p_options', n_clicks=0),width=2)
     ],
@@ -60,7 +62,21 @@ edge_weight = dbc.Row(
         dbc.Col(dbc.Input(
             id="input_nr",
             type = "number",
-            placeholder= "Input Number"
+            placeholder= "Input Number",
+            value = 1
+            ),
+            width=10)
+    ]
+)
+
+probability = dbc.Row(
+    [
+        dbc.Label("Enter the probability for the node", html_for="input_p", width=2),
+        dbc.Col(dbc.Input(
+            id="input_p",
+            type = "number",
+            placeholder= "Input Number",
+            value = 1
             ),
             width=10)
     ]
@@ -80,14 +96,17 @@ insert_button = dbc.Row(
     State('node_text', 'value'),
     State('dropdown_2', 'value'),
     State('input_nr', 'value'),
+    State('input_p', 'value'),
     prevent_inital_call=True
 )
-def update_output(n_clicks, value1, value3, edge_w):
+def update_output(n_clicks, node_text, parent_n, edge_w, prob):
     if n_clicks > 0:
-        new_node = [value1, "end", id, True, value3, edge_w]
+        data = read_json.load()
+        id = len(data)
+        new_node = [node_text, "end", id, True, parent_n, edge_w, prob]
         data_input.append_node(new_node)
         data_input.correct_node_types()
-        return "Inserted {}. node: (id: {}), (text: {}), (type: {}), (parent: {})".format(n_clicks, id , value1, "end", str(value3))
+        return "Inserted {}. node: (id: {}), (text: {}), (type: {}), (parent: {})".format(n_clicks, id , node_text, "end", str(parent_n))
     else: 
         pass
 
@@ -106,5 +125,5 @@ def update_graph_append(n):
     fig = display_graph.show_plot()
     return fig
 
-form = dbc.Form([node_text, dropdown_2, edge_weight, insert_button])
+form = dbc.Form([node_text, dropdown_2, edge_weight, probability,insert_button])
 layout = dbc.Container([html.H1("Insert a new node", className='app-header'), form, update_button_append, figure], fluid=True)

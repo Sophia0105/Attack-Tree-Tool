@@ -1,0 +1,40 @@
+[
+    {
+        "text_string": " pups schnurz egal<br>der dritte",
+        "node_type": "or",
+        "id": 0,
+        "parentnode": false
+    },
+    {
+        "text_string": " aaaaacht ung",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1
+    },
+    {
+        "text_string": " Get lock picking<br>tools",
+        "node_type": "end",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1
+    },
+    {
+        "text_string": " Test Test Test",
+        "node_type": "end",
+        "id": 4,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1
+    },
+    {
+        "text_string": " guter weg, kann ich<br>jetzt wirklich ins<br>Bett?",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 1
+    }
+]

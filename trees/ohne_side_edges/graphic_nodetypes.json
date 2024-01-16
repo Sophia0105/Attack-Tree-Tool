@@ -1,0 +1,104 @@
+[
+    {
+        "text_string": " open safe",
+        "node_type": "or",
+        "id": 0,
+        "parentnode": false
+    },
+    {
+        "text_string": " pick lock",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 0
+    },
+    {
+        "text_string": " learn combo",
+        "node_type": "or",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 0
+    },
+    {
+        "text_string": " cut open safe",
+        "node_type": "end",
+        "id": 3,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 0
+    },
+    {
+        "text_string": " install inproperly",
+        "node_type": "end",
+        "id": 4,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 0
+    },
+    {
+        "text_string": " find written combo",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 0
+    },
+    {
+        "text_string": " get combo from<br>target",
+        "node_type": "or",
+        "id": 6,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 0
+    },
+    {
+        "text_string": " threaten",
+        "node_type": "end",
+        "id": 7,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": 0
+    },
+    {
+        "text_string": " blackmail",
+        "node_type": "end",
+        "id": 8,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": 0
+    },
+    {
+        "text_string": " eavesdrop",
+        "node_type": "and",
+        "id": 9,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": 0
+    },
+    {
+        "text_string": " bribe",
+        "node_type": "end",
+        "id": 10,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": 0
+    },
+    {
+        "text_string": " listen to<br>conversation",
+        "node_type": "end",
+        "id": 11,
+        "parentnode": true,
+        "parentnode_number": 9,
+        "edge": 0
+    },
+    {
+        "text_string": " get target to state<br>combo",
+        "node_type": "end",
+        "id": 12,
+        "parentnode": true,
+        "parentnode_number": 9,
+        "edge": 0
+    }
+]

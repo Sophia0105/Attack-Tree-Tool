@@ -3,6 +3,7 @@ import plotly.graph_objects as go
 
 def show_plot():
     nodes = ["test1", "test2", "test3", "test4", "test5"]
+    side_edge_labels = ["1", "1", "1", "1", "1"]
     edge_labels = ["0.5", "0.33", "0.45", "0.87"]
     edges = [(0,1), (2,0), (1,3), (4,1)]
     nr_vertices = len(nodes)
@@ -23,6 +24,8 @@ def show_plot():
     # x- and y- position of the nodes
     Xn = [position[k][0] for k in range(L)]
     Yn = [2*M-position[k][1] for k in range(L)]
+    print( "Xn " + str(Xn))
+    print( "Yn " + str(Yn)) 
 
     # x- and y- position of the edges
     Xe = []
@@ -30,9 +33,6 @@ def show_plot():
     for edge in E: 
         Xe+= [position[edge[0]][0], position[edge[1]][0], None]
         Ye+= [2*M-position[edge[0]][1], 2*M-position[edge[1]][1], None]
-
-    print("Xe: " + str(Xe))
-    print("Ye: " + str(Ye))
 
     Xel = []
     Yel = []
@@ -46,6 +46,19 @@ def show_plot():
         Yel.append(y)
         p += 3 
 
+    Xnw = []
+    Ynw = []
+    p = 0
+    for i in range(len(nodes)):
+        x = Xn[p]- 0.05
+        Xnw.append(x)
+        y = Yn[p]
+        Ynw.append(y)
+        p += 1
+
+    print( "Xnw " + str(Xnw))
+    print( "Ynw " + str(Ynw)) 
+
 
     fig = go.Figure()
 
@@ -58,6 +71,8 @@ def show_plot():
     
     for i in range(len(edges)):
         fig.add_annotation(x = Xel[i], y = Yel[i], text = edge_labels[i], showarrow= False)
+
+    
     
     # Shows full nodes
     fig.add_trace(go.Scatter(x=Xn,
@@ -71,6 +86,9 @@ def show_plot():
                   textposition= "top center",
                   hoverinfo='none'
                   ))
+    
+    for i in range(len(nodes)):
+        fig.add_annotation(x = Xnw[i], y = Ynw[i], text = side_edge_labels[i], showarrow= False)
 
 
     

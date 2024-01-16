@@ -1,0 +1,56 @@
+[
+    {
+        "text_string": " pups schnurz egal<br>der dritte",
+        "node_type": "or",
+        "id": 0,
+        "parentnode": false
+    },
+    {
+        "text_string": " pups schnurz egal<br>der vierte",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 12
+    },
+    {
+        "text_string": " pups schnurz egal<br>der fuenfte",
+        "node_type": "end",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 23
+    },
+    {
+        "text_string": " der sechste",
+        "node_type": "end",
+        "id": 3,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 45
+    },
+    {
+        "text_string": " siebenn",
+        "node_type": "end",
+        "id": 4,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": 99
+    },
+    {
+        "text_string": " aaaaacht ung",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 3,
+        "edge": 88
+    },
+    {
+        "text_string": " nine neun nuevo",
+        "node_type": "end",
+        "id": 6,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 55
+    }
+]

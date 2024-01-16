@@ -1,0 +1,62 @@
+[
+    {
+        "text_string": " bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte",
+        "node_type": "or",
+        "id": 0,
+        "parentnode": false
+    },
+    {
+        "text_string": " jetzt an 3 soll an 2",
+        "node_type": "or",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1,
+        "side_edge" : 1
+    },
+    {
+        "text_string": " child 2 soll zu get<br>lock picking tools in<br>pink",
+        "node_type": "end",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1,
+        "side_edge" : 1
+    },
+    {
+        "text_string": " test edge 56",
+        "node_type": "end",
+        "id": 3,
+        "parentnode": true,
+        "parentnode_number": 1,
+        "edge": 56,
+        "side_edge" : 1
+    },
+    {
+        "text_string": " test edge 45",
+        "node_type": "end",
+        "id": 4,
+        "parentnode": true,
+        "parentnode_number": 1,
+        "edge": 45,
+        "side_edge" : 1
+    },
+    {
+        "text_string": " test edge 3",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 4,
+        "edge": 3,
+        "side_edge" : 1
+    },
+    {
+        "text_string": " Test Test Test",
+        "node_type": "end",
+        "id": 6,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1,
+        "side_edge" : 1
+    }
+]

@@ -32,6 +32,21 @@ def correct_ids(data):
         counter += 1
     return new_data
 
+def change_parentnodes(data, delete_id):
+    new_data = data
+    for j in data:
+        if j["id"] == delete_id:
+            parentnode = j["parentnode_number"]
+    counter = 0
+    for i in data: 
+        if i["parentnode"] == True:
+            if i["parentnode_number"] == delete_id:
+                new_data[counter]["parentnode_number"] = parentnode
+        if i["id"] == parentnode:
+            new_data[counter]["node_type"] = "end"
+        counter += 1
+    return new_data
+
 
 def create_nodes(data):
     text = []
@@ -60,6 +75,7 @@ def load():
     file.close()
     data = open_file(filename)
     updated = correct_ids(data)
+    updated = data
     close_file(updated)
     return updated
 
@@ -119,3 +135,11 @@ def get_edge_labels():
         if data[i]["parentnode"] == True:
             edge_labels.append(data[i]["edge"])
     return edge_labels
+
+def get_probabilities():
+    data = load()
+    labels = []
+    for i in range(len(data)):
+        if data[i]["parentnode"] == True:
+            labels.append(data[i]["probability"])
+    return labels

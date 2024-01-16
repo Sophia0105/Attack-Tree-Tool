@@ -47,11 +47,11 @@ def update_graph_live(n, value1, value2):
     if n > 0:
         filename = str(os.getcwd())+ "\\trees\\" + value1 + ".json"
         first_node = [{'text_string': value2, 'node_type': 'end', 'id': 0, 'parentnode': False}]
-        read_json.close_file(first_node)
         storage = str(os.getcwd()) + "\Storage.txt"
         text_file = open(storage, "w")
         text_file.write(filename)
         text_file.close()
+        read_json.close_file(first_node)
         return filename
     else:
         pass

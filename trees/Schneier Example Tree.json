@@ -1,0 +1,62 @@
+[
+    {
+        "text_string": " open safe",
+        "node_type": "or",
+        "id": 0,
+        "parentnode": false
+    },
+    {
+        "text_string": " Pick Lock",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 0,
+        "probability" : 0
+    },
+    {
+        "text_string": " Learn Combo",
+        "node_type": "or",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1,
+        "probability" : 0
+    },
+    {
+        "text_string": " Cut Open Safe",
+        "node_type": "end",
+        "id": 3,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1,
+        "probability" : 0
+    },
+    {
+        "text_string": " Install Improperly",
+        "node_type": "end",
+        "id": 4,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 0,
+        "probability" : 0
+    },
+    {
+        "text_string": " Find Written Combo",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 0,
+        "probability" : 0
+    },
+    {
+        "text_string": " Get Combo From<br>Target",
+        "node_type": "end",
+        "id": 6,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 1,
+        "probability" : 0
+    }
+]

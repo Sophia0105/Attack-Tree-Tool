@@ -1,56 +1,71 @@
 [
     {
-        "text_string": " lange lange lange<br>lange lange lange<br>lange lange lange<br>lange lange lange<br>lange lange",
+        "text_string": " bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte",
         "node_type": "or",
         "id": 0,
         "parentnode": false
     },
     {
-        "text_string": " test layer 2",
-        "node_type": "and",
+        "text_string": " child 2 soll zu get<br>lock picking tools in<br>pink",
+        "node_type": "end",
         "id": 1,
         "parentnode": true,
         "parentnode_number": 0,
-        "edge": 1
+        "edge": 1,
+        "probability": 0
     },
     {
-        "text_string": " new layer 3.2",
+        "text_string": " test edge 56",
         "node_type": "end",
         "id": 2,
         "parentnode": true,
-        "parentnode_number": 1,
-        "edge": 0.5
+        "parentnode_number": 0,
+        "edge": 56,
+        "probability": 0.5
     },
     {
-        "text_string": " new layer 3.1",
-        "node_type": "end",
+        "text_string": " test edge 3",
+        "node_type": "and",
         "id": 3,
         "parentnode": true,
-        "parentnode_number": 1,
-        "edge": 6
+        "parentnode_number": 0,
+        "edge": 3,
+        "probability": 0
     },
     {
-        "text_string": " test layer 2.1",
+        "text_string": " Test Test Test",
         "node_type": "end",
         "id": 4,
         "parentnode": true,
         "parentnode_number": 0,
-        "edge": 5
+        "edge": 1,
+        "probability": 6
     },
     {
-        "text_string": " try 234",
+        "text_string": " knoten 3",
         "node_type": "end",
         "id": 5,
         "parentnode": true,
-        "parentnode_number": 2,
-        "edge": 45
+        "parentnode_number": 3,
+        "edge": 1,
+        "probability": 0
     },
     {
-        "text_string": " try 345",
+        "text_string": " knoten 4",
         "node_type": "end",
         "id": 6,
         "parentnode": true,
         "parentnode_number": 3,
-        "edge": 234
+        "edge": 1,
+        "probability": 0
+    },
+    {
+        "text_string": " Example Text",
+        "node_type": "end",
+        "id": 7,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": 1,
+        "probability": 1
     }
 ]

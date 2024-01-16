@@ -40,6 +40,7 @@ def show_plot():
     Yn = [2*M-position[k][1] for k in range(L)]
 
     edge_labels = read_json.get_edge_labels()
+    probabilities = read_json.get_probabilities()
     # x- and y- position of the edges
     Xe = []
     Ye = []
@@ -53,15 +54,27 @@ def show_plot():
     Xel = []
     Yel = []
     p = 0
-    for i in range(len(edges)):
-        if node_types[i] == "end":
+    for i in range(1,len(edges)):
+        if node_types[i] != "helper":
             x = Xe[p] + Xe[p+1]
             x = x / 2 
             Xel.append(x)
             y = Ye[p] + Ye[p+1]
             y = y / 2
             Yel.append(y)
-            p += 3 
+            p += 3
+
+    Xnw = []
+    Ynw = []
+    p = 1
+    for i in range(1,len(nodes)):
+        if node_types[i] != "helper":
+            x = Xn[p] - 0.013 * data_input.search_longest_line(nodes[i])
+            Xnw.append(x)
+            y = Yn[p] 
+            Ynw.append(y)
+            p += 1
+
 
     new_nodes = []
     Xnn = []
@@ -106,10 +119,12 @@ def show_plot():
                                 size=10,
                                 color='#6175c1',    #'#DB4551',
                                 ),
-                  # text=nodes,
                   hoverinfo='none'
                   ))
     
+    for i in range(len(Xnw)):
+        fig.add_annotation(x = Xnw[i], y = Ynw[i], text = probabilities[i], showarrow= True, arrowhead= 0, arrowwidth=5, arrowcolor='rgb(210,210,210)', ax = - 30, ay = 0)
+
     # Show helper nodes
     fig.add_trace(go.Scatter(x=Xhn,
                   y=Yhn,
@@ -118,7 +133,7 @@ def show_plot():
                                 size=50,
                                 color="#6175c1",    #'#DB4551',
                                 ),
-                  # text=nodes,
+                  # text=new_nodes,
                   hoverinfo='none'
                   ))
 

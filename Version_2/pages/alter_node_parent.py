@@ -4,7 +4,6 @@ import data_input
 import display_graph
 from dash import html, dcc, callback, Output, Input, State
 import dash_bootstrap_components as dbc
-import os
 
 dash.register_page(__name__, path='/alter_parent', name='Alter Parent Node')
 

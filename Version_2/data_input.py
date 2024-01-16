@@ -2,10 +2,6 @@ import read_json
 import os
 
 def append_node(input_node):
-    storage = str(os.getcwd()) + "\Storage.txt"
-    file = open(storage, "r")
-    filename= file.read()
-    file.close()
     f_json = read_json.load()
     
     text = input_node[0]
@@ -13,8 +9,9 @@ def append_node(input_node):
     id = input_node[2]
     parent_node = input_node[4]
     edge_label = input_node[5]
+    probability = input_node[6]
 
-    new_node = {"text_string": text, "node_type": node_type,"id": id, "parentnode": True, "parentnode_number": parent_node, "edge": edge_label}
+    new_node = {"text_string": text, "node_type": node_type,"id": id, "parentnode": True, "parentnode_number": parent_node, "edge": edge_label, "probability": probability}
     f_json.append(new_node)
     read_json.close_file(f_json)
 
@@ -67,20 +64,17 @@ def alter_parent(node_nr, parent_new):
                 pass
 
 def delete_node(node_nr):
-    storage = str(os.getcwd()) + "\Storage.txt"
-    file = open(storage, "r")
-    filename= file.read()
-    file.close()
     if node_nr == 0:
         return "Error: Node 0 can not be deleted"
     else:
         f_json = read_json.load()
         nr_vertices = len(f_json)
-        delete_node = "None"
+        data = read_json.change_parentnodes(f_json,node_nr)
         for i in range(nr_vertices):
-            if (f_json[i]["id"] == node_nr):
-                delete_node = f_json.pop(i)
-                read_json.close_file(f_json)
+            if (data[i]["id"] == node_nr):
+                delete_node = data.pop(i)
+                data = read_json.correct_ids(data)
+                read_json.close_file(data)
                 correct_node_types()
                 return "node deleted -- last one: (id: {}), (text: {}), (type: {}), (parent: {})".format(str(delete_node["id"]), delete_node["text_string"], delete_node["node_type"], str(delete_node["parentnode_number"]))
             else: 
@@ -93,23 +87,15 @@ def correct_node_types():
     nr_vertices = len(f_json)
     parent_nodes = []
 
-    newlist = []
-    duplist = [] 
-
-    for i in range(1,nr_vertices):
-        parent_nodes.append(f_json[i]["parentnode_number"])
-
-    for i in parent_nodes: 
-        if i not in newlist:
-            newlist.append(i)
-        else:
-            duplist.append(i)
+    for i in range(nr_vertices):
+        if i > 0:
+            parent_nodes.append(f_json[i]["parentnode_number"])
 
     for i in range(nr_vertices): 
-        if (f_json[i]["node_type"] == "and") and i not in duplist:
+        if (f_json[i]["node_type"] == "and") and parent_nodes.count(i) < 2:
             f_json[i]["node_type"] = "end"
             error = True
-        if (f_json[i]["node_type"] == "or") and i not in duplist:
+        if (f_json[i]["node_type"] == "or") and parent_nodes.count(i) < 2:
             f_json[i]["node_type"] = "end"
             error = True
         if f_json[i]["node_type"] == "end" and parent_nodes.count(i) >= 2:
@@ -119,12 +105,8 @@ def correct_node_types():
     return error
 
 def add_br_to_text():
-    storage = str(os.getcwd()) + "\Storage.txt"
-    file = open(storage, "r")
-    filename= file.read()
-    file.close()
     max_length = 20
-    f_json = read_json.open_file(filename)
+    f_json = read_json.load()
     nr_vertices = len(f_json)
     for i in range(nr_vertices):
             old = f_json[i]["text_string"]
@@ -150,11 +132,16 @@ def add_br(input_line, max_length):
                 long_line += " " + word
         return long_line
     
+def search_longest_line(text):
+    lines = text.split('<br>')
+    max_length = 0
+    for i in lines:
+        if len(i) > max_length:
+            max_length = len(i)    
+    return max_length
+
+
 def alter_edge(node_nr, edge_new):
-    storage = str(os.getcwd()) + "\Storage.txt"
-    file = open(storage, "r")
-    filename= file.read()
-    file.close()
     if node_nr == 0:
         return "Error: Node 0 has no parent node"
     else:
@@ -168,5 +155,17 @@ def alter_edge(node_nr, edge_new):
             else: 
                 pass
 
-
+def alter_probability(node_nr, p_new):
+    if node_nr == 0:
+        return "Error: Node 0 has no parent node"
+    else:
+        f_json = read_json.load()
+        nr_vertices = len(f_json)
+        for i in range(nr_vertices):
+            if (f_json[i]["id"] == node_nr):
+                f_json[i]["probability"] = p_new
+                read_json.close_file(f_json)
+                return "Successful"
+            else: 
+                pass
         
