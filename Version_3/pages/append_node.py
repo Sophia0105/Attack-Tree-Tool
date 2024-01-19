@@ -58,29 +58,17 @@ def update_dropdown_p_options(n):
 
 edge_weight = dbc.Row(
     [
-        dbc.Label("Enter edge weight for connection to parent node", html_for="input_nr", width=2),
-        dbc.Col(dbc.Input(
-            id="input_nr",
-            type = "number",
-            placeholder= "Input Number",
-            value = 1
-            ),
-            width=10)
-    ]
+        dbc.Label("Enter edge weight for evaluation", html_for="edge_weight", width=2),
+        dbc.Col(dcc.Dropdown(
+            id='edge_weight',
+            options=[{'label': 'Impossible', 'value':'I'},
+                     {'label': 'Possible', 'value': 'P'}],
+            value='I'
+        ), width=10),
+    ],
+    className="mb-3",
 )
 
-probability = dbc.Row(
-    [
-        dbc.Label("Enter the probability for the node", html_for="input_p", width=2),
-        dbc.Col(dbc.Input(
-            id="input_p",
-            type = "number",
-            placeholder= "Input Number",
-            value = 1
-            ),
-            width=10)
-    ]
-)
 
 insert_button = dbc.Row(
     [
@@ -95,15 +83,14 @@ insert_button = dbc.Row(
     Input('submit-val', 'n_clicks'), 
     State('node_text', 'value'),
     State('dropdown_2', 'value'),
-    State('input_nr', 'value'),
-    State('input_p', 'value'),
+    State('edge_weight', 'value'),
     prevent_inital_call=True
 )
-def update_output(n_clicks, node_text, parent_n, edge_w, prob):
+def update_output(n_clicks, node_text, parent_n, edge_w):
     if n_clicks > 0:
         data = read_json.load()
         id = len(data)
-        new_node = [node_text, "end", id, True, parent_n, edge_w, prob]
+        new_node = [node_text, "end", id, True, parent_n, edge_w, 1]
         outp = data_input.append_node(new_node)
         data_input.correct_node_types()
         return outp
@@ -125,5 +112,5 @@ def update_graph_append(n):
     fig = display_graph.show_plot()
     return fig
 
-form = dbc.Form([node_text, dropdown_2, edge_weight, probability,insert_button])
+form = dbc.Form([node_text, dropdown_2, edge_weight,insert_button])
 layout = dbc.Container([html.H1("Insert a new node", className='app-header'), form, update_button_append, figure], fluid=True)

@@ -1,0 +1,25 @@
+h1,h2,h3,h4,h5,h6 {
+    color: hotpink;
+    font-family: sans-serif;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+.app-header {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: thin lightgrey solid;
+    font-size: 22px;
+    padding-left: 0px;
+}
+
+.button {
+    background-color: deeppink;
+    border: 0;
+}
+
+.navbar {
+    color: black;
+}

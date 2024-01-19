@@ -1,70 +1,116 @@
 [
     {
-        "text_string": " bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte bitte bitte<br>bitte",
+        "text_string": " open safe",
         "node_type": "or",
         "id": 0,
-        "parentnode": false
+        "parentnode": false,
+        "probability": 0
     },
     {
-        "text_string": " child 2 soll zu get<br>lock picking tools in<br>pink",
+        "text_string": " Pick Lock",
         "node_type": "end",
         "id": 1,
         "parentnode": true,
         "parentnode_number": 0,
+        "edge": 0,
+        "probability": 0
+    },
+    {
+        "text_string": " Learn Combo",
+        "node_type": "or",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 0,
         "edge": 1,
         "probability": 0
     },
     {
-        "text_string": " test edge 56",
+        "text_string": " Cut Open Safe",
         "node_type": "end",
-        "id": 2,
-        "parentnode": true,
-        "parentnode_number": 0,
-        "edge": 56,
-        "probability": 0.5
-    },
-    {
-        "text_string": " test edge 3",
-        "node_type": "and",
         "id": 3,
         "parentnode": true,
         "parentnode_number": 0,
-        "edge": 3,
+        "edge": 1,
         "probability": 0
     },
     {
-        "text_string": " Test Test Test",
+        "text_string": " Install Improperly",
         "node_type": "end",
         "id": 4,
         "parentnode": true,
         "parentnode_number": 0,
-        "edge": 1,
-        "probability": 6
+        "edge": 0,
+        "probability": 0
     },
     {
-        "text_string": " knoten 3",
+        "text_string": " Find Written Combo",
         "node_type": "end",
         "id": 5,
         "parentnode": true,
-        "parentnode_number": 3,
-        "edge": 1,
+        "parentnode_number": 2,
+        "edge": 0,
         "probability": 0
     },
     {
-        "text_string": " knoten 4",
-        "node_type": "end",
+        "text_string": " Get Combo From<br>Target",
+        "node_type": "or",
         "id": 6,
         "parentnode": true,
-        "parentnode_number": 3,
+        "parentnode_number": 2,
         "edge": 1,
         "probability": 0
     },
     {
-        "text_string": " Example Text",
+        "text_string": " Threaten",
         "node_type": "end",
         "id": 7,
         "parentnode": true,
-        "parentnode_number": 2,
+        "parentnode_number": 6,
+        "edge": 1,
+        "probability": 1
+    },
+    {
+        "text_string": " Blackmail",
+        "node_type": "end",
+        "id": 8,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": 1,
+        "probability": 1
+    },
+    {
+        "text_string": " Eavesdrop",
+        "node_type": "and",
+        "id": 9,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": 1,
+        "probability": 1
+    },
+    {
+        "text_string": " Bribe",
+        "node_type": "end",
+        "id": 10,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": 1,
+        "probability": 1
+    },
+    {
+        "text_string": " Listen to<br>Conversation",
+        "node_type": "end",
+        "id": 11,
+        "parentnode": true,
+        "parentnode_number": 9,
+        "edge": 1,
+        "probability": 1
+    },
+    {
+        "text_string": " Get Target to State<br>Combo",
+        "node_type": "end",
+        "id": 12,
+        "parentnode": true,
+        "parentnode_number": 9,
         "edge": 1,
         "probability": 1
     }

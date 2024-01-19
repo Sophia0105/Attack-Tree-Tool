@@ -63,21 +63,29 @@ def load():
     close_file(updated)
     return updated
 
-def insert_node_types(nr_vertices, node_types, nodes, edges):
+def insert_node_types(nr_vertices, node_types, nodes, edges, valid_edges):
     new_edges = edges
+    new_valid_edges = []
     number_of_nodes = nr_vertices
     counter = 0
     for i in node_types:
+        counter3 = False
         if i=="and":
             counter_2 = 0
             for j in new_edges: 
                 if j[0] == counter:
                     second = j[1]
                     new_edges[counter_2] = (number_of_nodes, second)
+                    if j in valid_edges:
+                        new_valid_edges.append((number_of_nodes,second))
+                        counter3 = True
                 counter_2 += 1
             nodes.append("and")
             node_types.append("helper")
             new_edges.append((counter, number_of_nodes))
+            if counter3 == True:
+                new_valid_edges.append((counter, number_of_nodes))
+                counter3 = False
             number_of_nodes += 1
         elif i=="or":
             counter_2 = 0
@@ -85,15 +93,21 @@ def insert_node_types(nr_vertices, node_types, nodes, edges):
                 if j[0] == counter:
                     second = j[1]
                     new_edges[counter_2] = (number_of_nodes, second)
+                    if j in valid_edges:
+                        new_valid_edges.append((number_of_nodes,second))
+                        counter3 = True
                 counter_2 += 1
             nodes.append("or")
             node_types.append("helper")
             new_edges.append((counter, number_of_nodes))
+            if counter3 == True:
+                new_valid_edges.append((counter, number_of_nodes))
+                counter3 = False
             number_of_nodes += 1
         else: 
             pass
         counter += 1
-    return [number_of_nodes, nodes, node_types, new_edges]
+    return [number_of_nodes, nodes, node_types, new_edges, new_valid_edges]
 
 def get_edge_labels():
     data = load()
@@ -109,3 +123,11 @@ def get_probabilities():
     for i in range(len(data)):
         labels.append(data[i]["probability"])
     return labels
+
+def get_parents():
+    data = load()
+    parents = []
+    for i in range(len(data)):
+        if data[i]["parentnode"] == True:
+            parents.append(data[i]["parentnode_number"])
+    return parents

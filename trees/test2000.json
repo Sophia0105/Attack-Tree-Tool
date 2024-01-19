@@ -3,7 +3,8 @@
         "text_string": " pups schnurz egal<br>der dritte",
         "node_type": "or",
         "id": 0,
-        "parentnode": false
+        "parentnode": false,
+        "probability": 0
     },
     {
         "text_string": " pups schnurz egal<br>der vierte",

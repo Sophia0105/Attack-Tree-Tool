@@ -15,9 +15,8 @@ id = last_node["id"] + 1
 
 options_dropdown = []
 for i in range(nr_vertices):
-    if i > 0:
-        text = "Node " + str(i)
-        options_dropdown.append({"label": text, "value": i})
+    text = "Node " + str(i)
+    options_dropdown.append({"label": text, "value": i})
 
 dropdown = dbc.Row(
     [
@@ -26,7 +25,7 @@ dropdown = dbc.Row(
             id='dropdown_prob',
             options=options_dropdown,
         ), width=8),
-        dbc.Col(dbc.Button("Update Options", id='update_dropdown_prob', n_clicks=0),width=2)
+        dbc.Col(dbc.Button("Update Options", id='update_dropdown_prob', n_clicks=0, class_name="button"),width=2)
     ],
     className="mb-3",
 )
@@ -39,9 +38,8 @@ def update_dropdown_prob(n):
     data = read_json.load()
     new_options = []
     for i in range(len(data)):
-        if i > 0:
-            text = "Node " + str(i)
-            new_options.append({"label": text, "value": i})
+        text = "Node " + str(i)
+        new_options.append({"label": text, "value": i})
     return new_options
 
 prob_weight = dbc.Row(
@@ -94,4 +92,4 @@ def update_graph_alter(n):
     return fig
 
 form = dbc.Form([dropdown, prob_weight, insert_button])
-layout = dbc.Container([html.H1("Alter the node text", className='app-header'), form, update_button_alter, figure], fluid=True)
+layout = dbc.Container([html.H1("Alter the node probability", className='app-header'), form, update_button_alter, figure], fluid=True)

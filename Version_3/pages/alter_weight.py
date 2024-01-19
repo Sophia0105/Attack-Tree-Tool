@@ -46,14 +46,15 @@ def update_dropdown_edge(n):
 
 edge_weight = dbc.Row(
     [
-        dbc.Label("Enter edge weight for connection to parent node", html_for="input_edge", width=2),
-        dbc.Col(dbc.Input(
-            id="input_edge",
-            type = "number",
-            placeholder= "Input Number"
-            ),
-            width=10)
-    ]
+        dbc.Label("Enter edge weight for evaluation", html_for="dropdown_type", width=2),
+        dbc.Col(dcc.Dropdown(
+            id='edge_weight',
+            options=[{'label': 'Impossible', 'value':'I'},
+                     {'label': 'Possible', 'value': 'P'}],
+            value='end'
+        ), width=10),
+    ],
+    className="mb-3",
 )
 
 insert_button = dbc.Row(
@@ -67,7 +68,7 @@ insert_button = dbc.Row(
 @callback(
     Output('container-edge', 'children'),
     Input('submit-edge', 'n_clicks'), 
-    State('input_edge', 'value'),
+    State('edge_weight', 'value'),
     State('dropdown_edge', 'value'),
     prevent_inital_call=True
 )

@@ -1,0 +1,27 @@
+[
+    {
+        "text_string": " teeest",
+        "node_type": "end",
+        "id": 0,
+        "parentnode": false,
+        "probability": 0
+    },
+    {
+        "text_string": " Example Text",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1,
+        "probability": 1
+    },
+    {
+        "text_string": " Example Text",
+        "node_type": "end",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 1,
+        "edge": 1,
+        "probability": 1
+    }
+]

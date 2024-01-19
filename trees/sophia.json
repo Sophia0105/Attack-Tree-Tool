@@ -1,0 +1,18 @@
+[
+    {
+        "text_string": " pupsi",
+        "node_type": "end",
+        "id": 0,
+        "parentnode": false,
+        "probability": 0
+    },
+    {
+        "text_string": " Example Text",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 4567,
+        "probability": 1
+    }
+]
