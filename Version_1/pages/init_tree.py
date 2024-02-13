@@ -10,7 +10,7 @@ dash.register_page(__name__, path='/')
 
 filename_input = dbc.Row(
     [
-        dbc.Label("Determine a name for the file where the tree ist stored", html_for="filename_input", width=2),
+        dbc.Label("Determine a name for the file where the tree is stored", html_for="filename_input", width=2),
         dbc.Col(dbc.Input(
             id="filename_input", 
             placeholder="Enter the name for the new file",

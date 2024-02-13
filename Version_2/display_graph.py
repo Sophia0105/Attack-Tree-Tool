@@ -50,7 +50,7 @@ def show_plot():
         Ye+= [2*M-position[edge[0]][1], 2*M-position[edge[1]][1], None]
         counter += 1
     
-
+    # Berechnung der Positionen der Edge Labels aus den Edge Positionen (Immer auf halber Strecke der Edges)
     Xel = []
     Yel = []
     p = 0
@@ -64,6 +64,7 @@ def show_plot():
             Yel.append(y)
             p += 3
 
+    
     Xnw = []
     Ynw = []
     p = 0

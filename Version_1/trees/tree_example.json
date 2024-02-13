@@ -26,7 +26,7 @@
     },
     {
         "text_string": " Example Text",
-        "node_type": "and",
+        "node_type": "or",
         "id": 3,
         "parentnode": true,
         "parentnode_number": 0,
@@ -56,16 +56,16 @@
         "node_type": "end",
         "id": 6,
         "parentnode": true,
-        "parentnode_number": 3,
-        "edge": "P",
-        "probability": 0
+        "parentnode_number": 2,
+        "edge": "I",
+        "probability": 1
     },
     {
         "text_string": " Example Text",
         "node_type": "end",
         "id": 7,
         "parentnode": true,
-        "parentnode_number": 2,
+        "parentnode_number": 0,
         "edge": "I",
         "probability": 1
     },
@@ -74,7 +74,7 @@
         "node_type": "end",
         "id": 8,
         "parentnode": true,
-        "parentnode_number": 0,
+        "parentnode_number": 1,
         "edge": "I",
         "probability": 1
     },
@@ -84,7 +84,7 @@
         "id": 9,
         "parentnode": true,
         "parentnode_number": 1,
-        "edge": "I",
+        "edge": "P",
         "probability": 1
     },
     {
@@ -110,8 +110,26 @@
         "node_type": "end",
         "id": 12,
         "parentnode": true,
-        "parentnode_number": 1,
+        "parentnode_number": 3,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " TEST",
+        "node_type": "end",
+        "id": 13,
+        "parentnode": true,
+        "parentnode_number": 3,
         "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Example Text",
+        "node_type": "end",
+        "id": 14,
+        "parentnode": true,
+        "parentnode_number": 7,
+        "edge": "I",
         "probability": 1
     }
 ]

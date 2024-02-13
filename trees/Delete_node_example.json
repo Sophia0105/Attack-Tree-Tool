@@ -1,0 +1,18 @@
+[
+    {
+        "text_string": " Example Node 1",
+        "node_type": "end",
+        "id": 0,
+        "parentnode": false,
+        "probability": 0
+    },
+    {
+        "text_string": " Example Node 3",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": 1,
+        "probability": 1
+    }
+]
