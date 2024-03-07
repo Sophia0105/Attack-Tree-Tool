@@ -1,0 +1,99 @@
+[
+    {
+        "text_string": " open safe",
+        "node_type": "or",
+        "id": 0,
+        "parentnode": false,
+        "probability": 0
+    },
+    {
+        "text_string": " pick lock",
+        "node_type": "end",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " learn combo",
+        "node_type": "or",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " cut open safe",
+        "node_type": "end",
+        "id": 3,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " install improperly",
+        "node_type": "end",
+        "id": 4,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " find written combo",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " get combo from<br>target",
+        "node_type": "or",
+        "id": 6,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " threaten",
+        "node_type": "end",
+        "id": 7,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " blackmail",
+        "node_type": "end",
+        "id": 8,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " eavesdrop",
+        "node_type": "end",
+        "id": 9,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " bribe",
+        "node_type": "end",
+        "id": 10,
+        "parentnode": true,
+        "parentnode_number": 6,
+        "edge": "P",
+        "probability": 1
+    }
+]

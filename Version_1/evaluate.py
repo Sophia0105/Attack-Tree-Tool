@@ -62,7 +62,10 @@ def evaluate_tree():
             for i in all_children:
                 evals.append(edge_labels[i-1])
             if 'I' in evals:
-                edges.remove((parent_nodes[parent_nodes[i-1]], parent_nodes[i-1]))
+                if (parent_nodes[parent_nodes[i-1]], parent_nodes[i-1]) in edges:
+                    edges.remove((parent_nodes[parent_nodes[i-1]], parent_nodes[i-1]))
+                elif (parent_nodes[i-1],parent_nodes[parent_nodes[i-1]]) in edges:
+                    edges.remove((parent_nodes[i-1],parent_nodes[parent_nodes[i-1]]))
                 graph[parent_nodes[i-1]] = []
             else:
                 for i in children: 

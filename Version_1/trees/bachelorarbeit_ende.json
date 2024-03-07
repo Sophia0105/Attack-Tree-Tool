@@ -1,0 +1,864 @@
+[
+    {
+        "text_string": " St\u00f6rung der<br>Produktion",
+        "node_type": "or",
+        "id": 0,
+        "parentnode": false,
+        "probability": 0
+    },
+    {
+        "text_string": "<br>Naturereignis/Katastrophe",
+        "node_type": "or",
+        "id": 1,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Hochwasser",
+        "node_type": "and",
+        "id": 2,
+        "parentnode": true,
+        "parentnode_number": 1,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Feuer",
+        "node_type": "or",
+        "id": 3,
+        "parentnode": true,
+        "parentnode_number": 1,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Cyber Angriff",
+        "node_type": "or",
+        "id": 4,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Gew\u00e4ssern\u00e4he",
+        "node_type": "end",
+        "id": 5,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " starke Regenf\u00e4lle<br>\u00fcber langen Zeitraum",
+        "node_type": "end",
+        "id": 6,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Waldbrand",
+        "node_type": "and",
+        "id": 7,
+        "parentnode": true,
+        "parentnode_number": 3,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " trockenes Klima",
+        "node_type": "end",
+        "id": 8,
+        "parentnode": true,
+        "parentnode_number": 7,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Waldnaehe",
+        "node_type": "end",
+        "id": 9,
+        "parentnode": true,
+        "parentnode_number": 7,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Industriebrand",
+        "node_type": "or",
+        "id": 10,
+        "parentnode": true,
+        "parentnode_number": 3,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Ausbruch von Feuer<br>in der eigenen<br>Produktion",
+        "node_type": "or",
+        "id": 11,
+        "parentnode": true,
+        "parentnode_number": 10,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " \u00dcbergreifen von<br>Feuer von umliegenden<br>Geb\u00e4uden",
+        "node_type": "end",
+        "id": 12,
+        "parentnode": true,
+        "parentnode_number": 10,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Kabelbrand",
+        "node_type": "end",
+        "id": 13,
+        "parentnode": true,
+        "parentnode_number": 11,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Brandstiftung",
+        "node_type": "end",
+        "id": 14,
+        "parentnode": true,
+        "parentnode_number": 11,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Elektrizit\u00e4t",
+        "node_type": "end",
+        "id": 15,
+        "parentnode": true,
+        "parentnode_number": 11,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " menschliches<br>Versagen",
+        "node_type": "end",
+        "id": 16,
+        "parentnode": true,
+        "parentnode_number": 11,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Einschleusen von<br>Schadcode",
+        "node_type": "or",
+        "id": 17,
+        "parentnode": true,
+        "parentnode_number": 4,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Manipulation der<br>PLC-Programme",
+        "node_type": "or",
+        "id": 18,
+        "parentnode": true,
+        "parentnode_number": 4,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Abfangen/\u00c4ndern von<br>Daten",
+        "node_type": "and",
+        "id": 19,
+        "parentnode": true,
+        "parentnode_number": 4,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Denial-of-Service<br>Angriff",
+        "node_type": "and",
+        "id": 20,
+        "parentnode": true,
+        "parentnode_number": 4,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " technische<br>St\u00f6rung/Fehlfunktion",
+        "node_type": "or",
+        "id": 21,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " physischer Angriff",
+        "node_type": "or",
+        "id": 22,
+        "parentnode": true,
+        "parentnode_number": 0,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Ausfall/St\u00f6rung<br>Stromversorgung",
+        "node_type": "or",
+        "id": 23,
+        "parentnode": true,
+        "parentnode_number": 21,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Unzureichende<br>Wartungs- und<br>Instandhaltungsma\u00dfnahmen",
+        "node_type": "or",
+        "id": 24,
+        "parentnode": true,
+        "parentnode_number": 21,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Besch\u00e4digung durch<br>Sturmsch\u00e4den",
+        "node_type": "or",
+        "id": 25,
+        "parentnode": true,
+        "parentnode_number": 1,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Besch\u00e4digung durch<br>Erdeben",
+        "node_type": "and",
+        "id": 26,
+        "parentnode": true,
+        "parentnode_number": 1,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Externer Angreifer",
+        "node_type": "and",
+        "id": 27,
+        "parentnode": true,
+        "parentnode_number": 22,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Interner Angreifer",
+        "node_type": "and",
+        "id": 28,
+        "parentnode": true,
+        "parentnode_number": 22,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Zugang zu<br>Produktionsanlage",
+        "node_type": "or",
+        "id": 29,
+        "parentnode": true,
+        "parentnode_number": 27,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Zerst\u00f6rungswilliger<br>Mitarbeiter",
+        "node_type": "or",
+        "id": 30,
+        "parentnode": true,
+        "parentnode_number": 28,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Socail Engineering",
+        "node_type": "end",
+        "id": 31,
+        "parentnode": true,
+        "parentnode_number": 30,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Erpressung",
+        "node_type": "end",
+        "id": 32,
+        "parentnode": true,
+        "parentnode_number": 30,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Psychische<br>Erkrankung",
+        "node_type": "end",
+        "id": 33,
+        "parentnode": true,
+        "parentnode_number": 30,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": "<br>Werkzeuge/Hilfsmittel<br>zur Zerst\u00f6rung der<br>Anlage",
+        "node_type": "or",
+        "id": 34,
+        "parentnode": true,
+        "parentnode_number": 28,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Mobiler Datentr\u00e4ger<br>wie USB-Stick",
+        "node_type": "or",
+        "id": 35,
+        "parentnode": true,
+        "parentnode_number": 17,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Verbreitung \u00fcber<br>internes Netz",
+        "node_type": "and",
+        "id": 36,
+        "parentnode": true,
+        "parentnode_number": 17,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Befall aus dem<br>Internet",
+        "node_type": "or",
+        "id": 37,
+        "parentnode": true,
+        "parentnode_number": 17,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Zugriff auf<br>Produktionsnetzwerk",
+        "node_type": "or",
+        "id": 38,
+        "parentnode": true,
+        "parentnode_number": 20,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Rechenleistung zum<br>Versenden von genug<br>Paketen",
+        "node_type": "end",
+        "id": 39,
+        "parentnode": true,
+        "parentnode_number": 20,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Unzureichender<br>Hochwasserschutz",
+        "node_type": "end",
+        "id": 40,
+        "parentnode": true,
+        "parentnode_number": 2,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Infektion \u00fcber<br>Mitarbeiter PC",
+        "node_type": "end",
+        "id": 41,
+        "parentnode": true,
+        "parentnode_number": 35,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Finden und<br>Anschlie\u00dfen eines<br>infizierten<br>USB-Sticks",
+        "node_type": "end",
+        "id": 42,
+        "parentnode": true,
+        "parentnode_number": 35,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Konfigurator",
+        "node_type": "end",
+        "id": 43,
+        "parentnode": true,
+        "parentnode_number": 37,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Kontaktformular",
+        "node_type": "end",
+        "id": 44,
+        "parentnode": true,
+        "parentnode_number": 37,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Infektion eines<br>Office-PCs",
+        "node_type": "end",
+        "id": 45,
+        "parentnode": true,
+        "parentnode_number": 36,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " \u00dcbersprung von<br>Office-Netz auf<br>Produktionsnetz",
+        "node_type": "end",
+        "id": 46,
+        "parentnode": true,
+        "parentnode_number": 36,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Hohe Temperaturen",
+        "node_type": "end",
+        "id": 47,
+        "parentnode": true,
+        "parentnode_number": 7,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Gest\u00f6rte Bel\u00fcftung<br>von Ger\u00e4ten",
+        "node_type": "or",
+        "id": 48,
+        "parentnode": true,
+        "parentnode_number": 11,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Staub",
+        "node_type": "end",
+        "id": 49,
+        "parentnode": true,
+        "parentnode_number": 48,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Abdeckung durch<br>andere Ger\u00e4te",
+        "node_type": "end",
+        "id": 50,
+        "parentnode": true,
+        "parentnode_number": 48,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Hohe<br>Windgeschwindigkeiten",
+        "node_type": "end",
+        "id": 51,
+        "parentnode": true,
+        "parentnode_number": 25,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Angriffsfl\u00e4che an<br>den Geb\u00e4uden",
+        "node_type": "or",
+        "id": 52,
+        "parentnode": true,
+        "parentnode_number": 25,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Dach",
+        "node_type": "end",
+        "id": 53,
+        "parentnode": true,
+        "parentnode_number": 52,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " B\u00e4ume",
+        "node_type": "end",
+        "id": 54,
+        "parentnode": true,
+        "parentnode_number": 52,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Erdebebenherd in der<br>N\u00e4he",
+        "node_type": "end",
+        "id": 55,
+        "parentnode": true,
+        "parentnode_number": 26,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Nichtausreichend<br>stabile Bausubstanz",
+        "node_type": "end",
+        "id": 56,
+        "parentnode": true,
+        "parentnode_number": 26,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Interner Angreifer",
+        "node_type": "end",
+        "id": 57,
+        "parentnode": true,
+        "parentnode_number": 17,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Zugriff auf<br>Produktionsnetzwerk",
+        "node_type": "or",
+        "id": 58,
+        "parentnode": true,
+        "parentnode_number": 19,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Ausreichende<br>Berechtigungen",
+        "node_type": "end",
+        "id": 59,
+        "parentnode": true,
+        "parentnode_number": 57,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Ausnutzung von<br>Schwachstelle",
+        "node_type": "and",
+        "id": 60,
+        "parentnode": true,
+        "parentnode_number": 18,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Zugriff auf<br>Produktionsnetzwerk",
+        "node_type": "or",
+        "id": 61,
+        "parentnode": true,
+        "parentnode_number": 60,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Vorhandenensein<br>einer Schwachstelle",
+        "node_type": "end",
+        "id": 62,
+        "parentnode": true,
+        "parentnode_number": 60,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Interner Angreifer",
+        "node_type": "end",
+        "id": 63,
+        "parentnode": true,
+        "parentnode_number": 61,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Externer Angreifer",
+        "node_type": "end",
+        "id": 64,
+        "parentnode": true,
+        "parentnode_number": 61,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Unzureichender<br>Zugangsschutz",
+        "node_type": "and",
+        "id": 65,
+        "parentnode": true,
+        "parentnode_number": 18,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Zugriff auf<br>Produktionsnetzwerk",
+        "node_type": "or",
+        "id": 66,
+        "parentnode": true,
+        "parentnode_number": 65,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Unsicheres Passwort",
+        "node_type": "end",
+        "id": 67,
+        "parentnode": true,
+        "parentnode_number": 65,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Interner Angreifer<br>mit Passwort",
+        "node_type": "end",
+        "id": 68,
+        "parentnode": true,
+        "parentnode_number": 18,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Interner Angreifer",
+        "node_type": "end",
+        "id": 69,
+        "parentnode": true,
+        "parentnode_number": 66,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Externer Angreifer",
+        "node_type": "end",
+        "id": 70,
+        "parentnode": true,
+        "parentnode_number": 66,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " unzureichende<br>Verschl\u00fcsselung",
+        "node_type": "end",
+        "id": 71,
+        "parentnode": true,
+        "parentnode_number": 19,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " unzureichende<br>Authentisierung der<br>Kommunikationspartner",
+        "node_type": "end",
+        "id": 72,
+        "parentnode": true,
+        "parentnode_number": 19,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Interner Angreifer",
+        "node_type": "end",
+        "id": 73,
+        "parentnode": true,
+        "parentnode_number": 58,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Externer Angreifer",
+        "node_type": "end",
+        "id": 74,
+        "parentnode": true,
+        "parentnode_number": 58,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Kein<br>Integrit\u00e4tscheck der<br>\u00fcbertragenen Daten",
+        "node_type": "end",
+        "id": 75,
+        "parentnode": true,
+        "parentnode_number": 19,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Interner Angreifer",
+        "node_type": "end",
+        "id": 76,
+        "parentnode": true,
+        "parentnode_number": 38,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Externer Angreifer",
+        "node_type": "end",
+        "id": 77,
+        "parentnode": true,
+        "parentnode_number": 38,
+        "edge": "I",
+        "probability": 1
+    },
+    {
+        "text_string": " Keine Detection<br>durch IPS",
+        "node_type": "end",
+        "id": 78,
+        "parentnode": true,
+        "parentnode_number": 20,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " St\u00f6rung des<br>Stromversorgers",
+        "node_type": "end",
+        "id": 79,
+        "parentnode": true,
+        "parentnode_number": 23,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Ausl\u00f6sen der<br>Sicherung",
+        "node_type": "end",
+        "id": 80,
+        "parentnode": true,
+        "parentnode_number": 23,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Kurzschluss",
+        "node_type": "end",
+        "id": 81,
+        "parentnode": true,
+        "parentnode_number": 23,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Staub oder Schmutz",
+        "node_type": "or",
+        "id": 82,
+        "parentnode": true,
+        "parentnode_number": 24,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Verschlei\u00df an<br>Ger\u00e4ten",
+        "node_type": "end",
+        "id": 83,
+        "parentnode": true,
+        "parentnode_number": 24,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": "<br>Werkzeuge/Hilfsmittel<br>zur Zerst\u00f6rung der<br>Anlage",
+        "node_type": "or",
+        "id": 84,
+        "parentnode": true,
+        "parentnode_number": 27,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Brandstiftung",
+        "node_type": "end",
+        "id": 85,
+        "parentnode": true,
+        "parentnode_number": 34,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Brandstiftung",
+        "node_type": "end",
+        "id": 86,
+        "parentnode": true,
+        "parentnode_number": 84,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Vorschlaghammer",
+        "node_type": "end",
+        "id": 87,
+        "parentnode": true,
+        "parentnode_number": 84,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Vorschlaghammer",
+        "node_type": "end",
+        "id": 88,
+        "parentnode": true,
+        "parentnode_number": 34,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Sprengstoff",
+        "node_type": "end",
+        "id": 89,
+        "parentnode": true,
+        "parentnode_number": 34,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Sprengstoff",
+        "node_type": "end",
+        "id": 90,
+        "parentnode": true,
+        "parentnode_number": 84,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " \u00dcberhitzen",
+        "node_type": "end",
+        "id": 91,
+        "parentnode": true,
+        "parentnode_number": 82,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Blockieren/St\u00f6ren<br>von beweglichen<br>Maschienenparts",
+        "node_type": "end",
+        "id": 92,
+        "parentnode": true,
+        "parentnode_number": 82,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Zugang zu<br>Produktionsanlage",
+        "node_type": "end",
+        "id": 93,
+        "parentnode": true,
+        "parentnode_number": 28,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Social Engineering",
+        "node_type": "end",
+        "id": 94,
+        "parentnode": true,
+        "parentnode_number": 29,
+        "edge": "P",
+        "probability": 1
+    },
+    {
+        "text_string": " Einbruch",
+        "node_type": "end",
+        "id": 95,
+        "parentnode": true,
+        "parentnode_number": 29,
+        "edge": "P",
+        "probability": 1
+    }
+]

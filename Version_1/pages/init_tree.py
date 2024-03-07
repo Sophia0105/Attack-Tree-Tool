@@ -45,7 +45,7 @@ update_button = dbc.Row(
     )
 def update_graph_live(n, value1, value2):
     if n > 0:
-        filename = str(os.getcwd())+ "\\Version_3\\trees\\" + value1 + ".json"
+        filename = str(os.getcwd())+ "\\Version_1\\trees\\" + value1 + ".json"
         first_node = [{'text_string': value2, 'node_type': 'end', 'id': 0, 'parentnode': False, 'probability': 0}]
         storage = str(os.getcwd()) + "\Storage.txt"
         text_file = open(storage, "w")

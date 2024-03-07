@@ -44,7 +44,7 @@ def update_dropdown_prob(n):
 
 prob_weight = dbc.Row(
     [
-        dbc.Label("Enter altered probapility for the node", html_for="input_prob", width=2),
+        dbc.Label("Enter altered probability for the node", html_for="input_prob", width=2),
         dbc.Col(dbc.Input(
             id="input_prob",
             type = "number",

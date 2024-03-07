@@ -26,7 +26,7 @@ app.layout = html.Div([
     ])
 
 if __name__ == '__main__':
-    filename = str(os.getcwd())+ "\\Version_3\\trees\\tree_example.json"
+    filename = str(os.getcwd())+ "\\Version_1\\trees\\tree_example.json"
     # storage = str(os.getcwd()) + "\\Storage.txt"
     storage = "Storage.txt"
     text_file = open(storage, "w")
